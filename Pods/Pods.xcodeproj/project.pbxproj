@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08754A16B6E6D0DD229EB5F93DC3DEBE /* KRProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E95C2BE4049B718D058A9354FA1A5FD /* KRProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13CB42BBEA76B10DDCAF0F1C0755E518 /* KRActivityIndicatorViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E316CFBF8CF24CBDB8C9AFE63516F /* KRActivityIndicatorViewStyle.swift */; };
+		29F218947F981BF2816F08CF9B212E0F /* KRProgressHUDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A006E9396AA2708962969637086636 /* KRProgressHUDExtensions.swift */; };
+		732FEBF28FA99E93103F3B8D448CDED0 /* KRProgressHUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC75FEA01BBD628F820FDA9771241C /* KRProgressHUDViewController.swift */; };
+		7772DF8472F83746E69C2A22FA746C8E /* KRProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6967E832D2D68F83444A68CCF37D210A /* KRProgressHUD-dummy.m */; };
+		9A7DEB3560CF4F5B9883FD5D44925B08 /* KRProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1942264834BDA970B5F7CA74AA6FE1 /* KRProgressHUD.swift */; };
+		9FF23F00AD4E903319D63E06C4F259F5 /* KRProgressHUDIconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726EA3F9D0E17972783F480E852AC06E /* KRProgressHUDIconType.swift */; };
+		AC5A270B0EF5E6B80939B20EAEA1C364 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		CDCF9270CE8A05A96F2AD67A4174A8E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		CF1C314A7426C4B044199FEB5A061C42 /* Pods-Whisper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE534F74B3E287781EBE823E8B63535E /* Pods-Whisper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E757A9C4EB546F3907E6EE4D08F32E07 /* KRActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B77907BDBFA191E67589E2CD712B7 /* KRActivityIndicatorView.swift */; };
+		F67771A21FF65807B8C956501178839B /* Pods-Whisper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD5BB2C58106B15B7B2E70530D106 /* Pods-Whisper-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9948A73A18DA27E0E596F35B86C8D81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002A79E870219FA26D9FCCF693E84BD3;
+			remoteInfo = KRProgressHUD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04449AA03E9B95E43B7398D1BD8A70E1 /* Pods-Whisper-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Whisper-resources.sh"; sourceTree = "<group>"; };
+		1342A8CB8E8B5485F30DD4F2B6BA6B4A /* Pods-Whisper-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Whisper-acknowledgements.plist"; sourceTree = "<group>"; };
+		169F59A85C384FDC7295105016358436 /* Pods-Whisper-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Whisper-frameworks.sh"; sourceTree = "<group>"; };
+		1B0E589F94CC0D34FA2E6023EA65E168 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		2195A71F95237C00981CA8EED34A8450 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
+		30ADDEADA3D35BFD663256AC9A8A6B28 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		326B77907BDBFA191E67589E2CD712B7 /* KRActivityIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRActivityIndicatorView.swift; path = KRProgressHUD/Classes/KRActivityIndicatorView/KRActivityIndicatorView.swift; sourceTree = "<group>"; };
+		384970590C051BF5943699A65785B3A6 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		3A4E316CFBF8CF24CBDB8C9AFE63516F /* KRActivityIndicatorViewStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRActivityIndicatorViewStyle.swift; path = KRProgressHUD/Classes/KRActivityIndicatorView/KRActivityIndicatorViewStyle.swift; sourceTree = "<group>"; };
+		3D1942264834BDA970B5F7CA74AA6FE1 /* KRProgressHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRProgressHUD.swift; path = KRProgressHUD/Classes/KRProgressHUD.swift; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3E95C2BE4049B718D058A9354FA1A5FD /* KRProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		47BBD5BB2C58106B15B7B2E70530D106 /* Pods-Whisper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Whisper-dummy.m"; sourceTree = "<group>"; };
+		4A0C4B810F097F15173345BEDD0AF400 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		4AF99B59ADBEA4478DD35EE4419F12A9 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		598C17C5E1C4CE8A26596E8257A11D84 /* Pods-Whisper-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Whisper-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5E9F64A5B1B8D9B1DBE13B7BD1AA8897 /* Pods-Whisper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Whisper.modulemap"; sourceTree = "<group>"; };
+		650091089344CADB0963664AE75F7F92 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		6967E832D2D68F83444A68CCF37D210A /* KRProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KRProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		701C7ED14E0510DA7110B443D6519C4F /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		726EA3F9D0E17972783F480E852AC06E /* KRProgressHUDIconType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRProgressHUDIconType.swift; path = KRProgressHUD/Classes/KRProgressHUDIconType.swift; sourceTree = "<group>"; };
+		78F020013F31325BC2820B1C2C02E8CA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F1055407C4B43E85BF857AD50433BE6 /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC7E453D5631BA5FCB7FB5B9EE1D598 /* KRProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KRProgressHUD.modulemap; sourceTree = "<group>"; };
+		8079649C3595219F3A6E7D514FAD4A3D /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Frameworks/frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
+		80CA471C605DFDCD2F43FC0AA4172E7D /* KRProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRProgressHUD.xcconfig; sourceTree = "<group>"; };
+		88DA9F740A6EBDE98627281FDAE72253 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		91B3502EF020746B7222B90701CEB856 /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
+		AC3A30B11D1BA0BFF86415C62C971B37 /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
+		B5248A4337CAAA32C492421694C1E594 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B63B8D13BD892B992BD98AE6E86C1A42 /* KRProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C1F24FE2A7BEF1C692D3B57417167EE2 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		C4FC75FEA01BBD628F820FDA9771241C /* KRProgressHUDViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRProgressHUDViewController.swift; path = KRProgressHUD/Classes/KRProgressHUDViewController.swift; sourceTree = "<group>"; };
+		C8B1BE70581A512E23F74F8E3E6ABB90 /* FIRMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRMessaging.h; path = Sources/FIRMessaging.h; sourceTree = "<group>"; };
+		CE9FF810E8FCB17D298F8027EEBCE619 /* KRProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B8DA24C4975CC9D293A9376CAF528 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
+		F2A2F8357199FCA3BED3A4BAFB40656A /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		F6A006E9396AA2708962969637086636 /* KRProgressHUDExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRProgressHUDExtensions.swift; path = KRProgressHUD/Classes/KRProgressHUDExtensions.swift; sourceTree = "<group>"; };
+		F72BC4F0CA6B70C9F62A104FF1119089 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		FE534F74B3E287781EBE823E8B63535E /* Pods-Whisper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Whisper-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		402E28C3CA7DFB906542676C7C601757 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCF9270CE8A05A96F2AD67A4174A8E1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED4BCCDEFBB0C08EF2D9B20A8EFCFD86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5A270B0EF5E6B80939B20EAEA1C364 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0433CF9C2497F9FB0D4E5BB62E064E7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1F24FE2A7BEF1C692D3B57417167EE2 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B5B0BE8EF141B09766ED51B4C2AFE85 /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				7F0568B5D4652A81E6408CB3142F0541 /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		1FE6724D274BB169E8AB7CEE949CEB14 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2195A71F95237C00981CA8EED34A8450 /* Firebase.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		273CDFAF8DF30C0DEA86C6CB29B2D56D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE9FF810E8FCB17D298F8027EEBCE619 /* KRProgressHUD.framework */,
+				7F1055407C4B43E85BF857AD50433BE6 /* Pods_Whisper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A23D60E5FA25BAE0B337DA137502C42 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				750FA6D251CDD32C34F5E61E9FF2C1DD /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		312B2DEF48F7BD0E3C029B11E6C9A5A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				384970590C051BF5943699A65785B3A6 /* FirebaseCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3EAD8CC8AD3F126FC0901657B059E821 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				E16B8DA24C4975CC9D293A9376CAF528 /* FIRInstanceID.h */,
+				0433CF9C2497F9FB0D4E5BB62E064E7E /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		4973478D2E30C802E306E2A9D4A9309D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				1FE6724D274BB169E8AB7CEE949CEB14 /* Core */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		4BE3E50F405901C52EBB3D7F69D95613 /* FirebaseCore */ = {
+			isa = PBXGroup;
+			children = (
+				312B2DEF48F7BD0E3C029B11E6C9A5A3 /* Frameworks */,
+			);
+			path = FirebaseCore;
+			sourceTree = "<group>";
+		};
+		4C37FE90B34EF256747FF59E411027B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				650091089344CADB0963664AE75F7F92 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D3EE81BF0994B9A6AEDA7F35F0B7981 /* Pods-Whisper */ = {
+			isa = PBXGroup;
+			children = (
+				B5248A4337CAAA32C492421694C1E594 /* Info.plist */,
+				5E9F64A5B1B8D9B1DBE13B7BD1AA8897 /* Pods-Whisper.modulemap */,
+				598C17C5E1C4CE8A26596E8257A11D84 /* Pods-Whisper-acknowledgements.markdown */,
+				1342A8CB8E8B5485F30DD4F2B6BA6B4A /* Pods-Whisper-acknowledgements.plist */,
+				47BBD5BB2C58106B15B7B2E70530D106 /* Pods-Whisper-dummy.m */,
+				169F59A85C384FDC7295105016358436 /* Pods-Whisper-frameworks.sh */,
+				04449AA03E9B95E43B7398D1BD8A70E1 /* Pods-Whisper-resources.sh */,
+				FE534F74B3E287781EBE823E8B63535E /* Pods-Whisper-umbrella.h */,
+				91B3502EF020746B7222B90701CEB856 /* Pods-Whisper.debug.xcconfig */,
+				AC3A30B11D1BA0BFF86415C62C971B37 /* Pods-Whisper.release.xcconfig */,
+			);
+			name = "Pods-Whisper";
+			path = "Target Support Files/Pods-Whisper";
+			sourceTree = "<group>";
+		};
+		4D8C4F5BA96E28B6B86929A42835950A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2A2F8357199FCA3BED3A4BAFB40656A /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F648552E14B5262EB8F4BD69280CF3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88DA9F740A6EBDE98627281FDAE72253 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54733CC1D9A16C5A564F1C85F5CA99E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4973478D2E30C802E306E2A9D4A9309D /* Firebase */,
+				CCB4E5A69162BAEBA44D0CC43F2B1342 /* FirebaseAnalytics */,
+				0B5B0BE8EF141B09766ED51B4C2AFE85 /* FirebaseAuth */,
+				4BE3E50F405901C52EBB3D7F69D95613 /* FirebaseCore */,
+				70CD70205AF4768A52473D38BB0E9A7D /* FirebaseDatabase */,
+				3EAD8CC8AD3F126FC0901657B059E821 /* FirebaseInstanceID */,
+				E8D32024A51C206FEF3959AF07C31DD1 /* FirebaseMessaging */,
+				CE39521DFE2A769272AFA0CDA680042C /* FirebaseStorage */,
+				2A23D60E5FA25BAE0B337DA137502C42 /* GoogleInterchangeUtilities */,
+				CA73109B3A4D9B8C17859A252EBE148A /* GoogleIPhoneUtilities */,
+				8AF71ABE62A489E5455DA06A18F0F4C5 /* GoogleNetworkingUtilities */,
+				BC038B9A8351FA3671E787EFD1F638AE /* GoogleSymbolUtilities */,
+				A2FF3066F58DC2880C2482F9D201EF2F /* GoogleUtilities */,
+				958D694A130F610DE7E88A05DEE7CCE7 /* KRProgressHUD */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5748C2D145E153BAFA4C1CA431E633AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AF99B59ADBEA4478DD35EE4419F12A9 /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AEFF20E04C722FA97EE8D79D235F486 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				701C7ED14E0510DA7110B443D6519C4F /* GoogleIPhoneUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		621FD918BAC897C855C63AB7E0571DE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A0C4B810F097F15173345BEDD0AF400 /* FirebaseStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70CD70205AF4768A52473D38BB0E9A7D /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				5748C2D145E153BAFA4C1CA431E633AD /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		750FA6D251CDD32C34F5E61E9FF2C1DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30ADDEADA3D35BFD663256AC9A8A6B28 /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CAB2581481AEDB3BC749F17CEF5249E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72BC4F0CA6B70C9F62A104FF1119089 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				54733CC1D9A16C5A564F1C85F5CA99E1 /* Pods */,
+				273CDFAF8DF30C0DEA86C6CB29B2D56D /* Products */,
+				F7A86318E13392CF0C69AFA1B3049978 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7F0568B5D4652A81E6408CB3142F0541 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B0E589F94CC0D34FA2E6023EA65E168 /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88448B119BEE2D1885F9F84250F44056 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				78F020013F31325BC2820B1C2C02E8CA /* Info.plist */,
+				7FC7E453D5631BA5FCB7FB5B9EE1D598 /* KRProgressHUD.modulemap */,
+				80CA471C605DFDCD2F43FC0AA4172E7D /* KRProgressHUD.xcconfig */,
+				6967E832D2D68F83444A68CCF37D210A /* KRProgressHUD-dummy.m */,
+				B63B8D13BD892B992BD98AE6E86C1A42 /* KRProgressHUD-prefix.pch */,
+				3E95C2BE4049B718D058A9354FA1A5FD /* KRProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KRProgressHUD";
+			sourceTree = "<group>";
+		};
+		8AF71ABE62A489E5455DA06A18F0F4C5 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D8C4F5BA96E28B6B86929A42835950A /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		958D694A130F610DE7E88A05DEE7CCE7 /* KRProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				326B77907BDBFA191E67589E2CD712B7 /* KRActivityIndicatorView.swift */,
+				3A4E316CFBF8CF24CBDB8C9AFE63516F /* KRActivityIndicatorViewStyle.swift */,
+				3D1942264834BDA970B5F7CA74AA6FE1 /* KRProgressHUD.swift */,
+				F6A006E9396AA2708962969637086636 /* KRProgressHUDExtensions.swift */,
+				726EA3F9D0E17972783F480E852AC06E /* KRProgressHUDIconType.swift */,
+				C4FC75FEA01BBD628F820FDA9771241C /* KRProgressHUDViewController.swift */,
+				88448B119BEE2D1885F9F84250F44056 /* Support Files */,
+			);
+			path = KRProgressHUD;
+			sourceTree = "<group>";
+		};
+		A2FF3066F58DC2880C2482F9D201EF2F /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7CAB2581481AEDB3BC749F17CEF5249E /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		BC038B9A8351FA3671E787EFD1F638AE /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				4F648552E14B5262EB8F4BD69280CF3E /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CA73109B3A4D9B8C17859A252EBE148A /* GoogleIPhoneUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				5AEFF20E04C722FA97EE8D79D235F486 /* Frameworks */,
+			);
+			path = GoogleIPhoneUtilities;
+			sourceTree = "<group>";
+		};
+		CB9F12EA84417422D3982804E501D8F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8079649C3595219F3A6E7D514FAD4A3D /* FirebaseMessaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCB4E5A69162BAEBA44D0CC43F2B1342 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				4C37FE90B34EF256747FF59E411027B6 /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		CE39521DFE2A769272AFA0CDA680042C /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				621FD918BAC897C855C63AB7E0571DE4 /* Frameworks */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		E8D32024A51C206FEF3959AF07C31DD1 /* FirebaseMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				C8B1BE70581A512E23F74F8E3E6ABB90 /* FIRMessaging.h */,
+				CB9F12EA84417422D3982804E501D8F9 /* Frameworks */,
+			);
+			path = FirebaseMessaging;
+			sourceTree = "<group>";
+		};
+		F7A86318E13392CF0C69AFA1B3049978 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D3EE81BF0994B9A6AEDA7F35F0B7981 /* Pods-Whisper */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		315589C8EB83E83A5C29BD328315EAA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08754A16B6E6D0DD229EB5F93DC3DEBE /* KRProgressHUD-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74ABAD4EACB45FDBA865F3D812BF8C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF1C314A7426C4B044199FEB5A061C42 /* Pods-Whisper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		002A79E870219FA26D9FCCF693E84BD3 /* KRProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9171A8C9F8CCDFE40F2B4265D5648FD3 /* Build configuration list for PBXNativeTarget "KRProgressHUD" */;
+			buildPhases = (
+				EA9F5EBD6071ABE3F872676B248EB277 /* Sources */,
+				402E28C3CA7DFB906542676C7C601757 /* Frameworks */,
+				315589C8EB83E83A5C29BD328315EAA7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KRProgressHUD;
+			productName = KRProgressHUD;
+			productReference = CE9FF810E8FCB17D298F8027EEBCE619 /* KRProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2900287ED967DF6666FE7965A983EE29 /* Pods-Whisper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0C7A7C51D1DF3663A741E91D20FF025 /* Build configuration list for PBXNativeTarget "Pods-Whisper" */;
+			buildPhases = (
+				5A397F70478EBB8E24B54BAC0FEF32C4 /* Sources */,
+				ED4BCCDEFBB0C08EF2D9B20A8EFCFD86 /* Frameworks */,
+				C74ABAD4EACB45FDBA865F3D812BF8C4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9AF82226DB68400DA6C2887AB2329FB8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Whisper";
+			productName = "Pods-Whisper";
+			productReference = 7F1055407C4B43E85BF857AD50433BE6 /* Pods_Whisper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					002A79E870219FA26D9FCCF693E84BD3 = {
+						LastSwiftMigration = 0800;
+					};
+					2900287ED967DF6666FE7965A983EE29 = {
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 273CDFAF8DF30C0DEA86C6CB29B2D56D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				002A79E870219FA26D9FCCF693E84BD3 /* KRProgressHUD */,
+				2900287ED967DF6666FE7965A983EE29 /* Pods-Whisper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A397F70478EBB8E24B54BAC0FEF32C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F67771A21FF65807B8C956501178839B /* Pods-Whisper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA9F5EBD6071ABE3F872676B248EB277 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E757A9C4EB546F3907E6EE4D08F32E07 /* KRActivityIndicatorView.swift in Sources */,
+				13CB42BBEA76B10DDCAF0F1C0755E518 /* KRActivityIndicatorViewStyle.swift in Sources */,
+				7772DF8472F83746E69C2A22FA746C8E /* KRProgressHUD-dummy.m in Sources */,
+				9A7DEB3560CF4F5B9883FD5D44925B08 /* KRProgressHUD.swift in Sources */,
+				29F218947F981BF2816F08CF9B212E0F /* KRProgressHUDExtensions.swift in Sources */,
+				9FF23F00AD4E903319D63E06C4F259F5 /* KRProgressHUDIconType.swift in Sources */,
+				732FEBF28FA99E93103F3B8D448CDED0 /* KRProgressHUDViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9AF82226DB68400DA6C2887AB2329FB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KRProgressHUD;
+			target = 002A79E870219FA26D9FCCF693E84BD3 /* KRProgressHUD */;
+			targetProxy = C9948A73A18DA27E0E596F35B86C8D81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		161C14C58809183C8395FD73E6FC57BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91B3502EF020746B7222B90701CEB856 /* Pods-Whisper.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Whisper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Whisper/Pods-Whisper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Whisper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E2E7AE44F60B35AE518686920F8C6A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80CA471C605DFDCD2F43FC0AA4172E7D /* KRProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KRProgressHUD/KRProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KRProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KRProgressHUD/KRProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KRProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		52CC7CBFA0A6192EC8F8EC7C41803A29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3A30B11D1BA0BFF86415C62C971B37 /* Pods-Whisper.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Whisper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Whisper/Pods-Whisper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Whisper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6B6C4AE01456DD6A0C6EF8307182FC8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80CA471C605DFDCD2F43FC0AA4172E7D /* KRProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KRProgressHUD/KRProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KRProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KRProgressHUD/KRProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = KRProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9171A8C9F8CCDFE40F2B4265D5648FD3 /* Build configuration list for PBXNativeTarget "KRProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B6C4AE01456DD6A0C6EF8307182FC8F /* Debug */,
+				3E2E7AE44F60B35AE518686920F8C6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0C7A7C51D1DF3663A741E91D20FF025 /* Build configuration list for PBXNativeTarget "Pods-Whisper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				161C14C58809183C8395FD73E6FC57BD /* Debug */,
+				52CC7CBFA0A6192EC8F8EC7C41803A29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
