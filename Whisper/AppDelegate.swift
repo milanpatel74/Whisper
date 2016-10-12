@@ -17,18 +17,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         FIRApp.configure()
-        
+        // If the user has signed in, and haven't signed out, then move to the main view directlly.
+        logUser()
         //self.window?.rootViewController = snapContainer
-        let initVC = storyboard.instantiateViewController(withIdentifier: "init")
-        self.window?.rootViewController = initVC
-        self.window?.makeKeyAndVisible()
+//        let initVC = storyboard.instantiateViewController(withIdentifier: "init")
+//        self.window?.rootViewController = initVC
+//        self.window?.makeKeyAndVisible()
         
         
         
         return true
     }
+    
+    func  logUser() {
+        if FIRAuth.auth()!.currentUser != nil {
+            print("\n\n\n")
+            print("Hello")
+            print(FIRAuth.auth()!.currentUser?.uid)
+            
+            // Define the snapchat scroll view.
+            let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+            // The left ViewController is the chat view.
+            let left1 = storyboard1.instantiateViewController(withIdentifier: "left")
+            // The middle ViewController is the camera view.
+            let middle1 = storyboard1.instantiateViewController(withIdentifier: "middle")
+            // The right ViewController is the story view.
+            let right1 = storyboard1.instantiateViewController(withIdentifier: "right")
+            // The top ViewController is the profile view.
+            let top1 = storyboard1.instantiateViewController(withIdentifier: "top")
+            // The bottom ViewController is the memory view.
+            let bottom1 = storyboard1.instantiateViewController(withIdentifier: "bottom")
+            // Add all VCs to a snap container.
+            let snapContainer1 = SnapContainerViewController.containerViewWith(left1,
+                                                                              middleVC: middle1,
+                                                                              rightVC: right1,
+                                                                              topVC: top1,
+                                                                              bottomVC: bottom1)
+            self.window?.rootViewController = snapContainer1
+            self.window?.makeKeyAndVisible()
+        }
+        
+        
+        
+        
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

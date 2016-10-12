@@ -9,19 +9,24 @@
 /* Begin PBXBuildFile section */
 		586A1202FA895344CA4C74A4 /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27972AAAC38374FAFFFB4CC /* Pods_Whisper.framework */; };
 		BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */; };
+		BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */; };
+		BC2BEA651DADEBE8004315D6 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA621DADEBE8004315D6 /* ResetPasswordViewController.swift */; };
+		BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA631DADEBE8004315D6 /* SignupViewController.swift */; };
+		BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA671DADEFB5004315D6 /* AuthenticationService.swift */; };
+		BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA6A1DADF718004315D6 /* CustomizableButton.swift */; };
+		BC2BEA6E1DADF718004315D6 /* CustomizableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA6B1DADF718004315D6 /* CustomizableImageView.swift */; };
+		BC2BEA6F1DADF718004315D6 /* CustomizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA6C1DADF718004315D6 /* CustomizableTextField.swift */; };
+		BC2BEA711DAE3843004315D6 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */; };
+		BC2BEA731DAE4267004315D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA721DAE4267004315D6 /* User.swift */; };
 		BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3444E91DACB68A00782EAC /* SCLAlertView.swift */; };
 		BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */; };
 		BC74F2691DA0C8840095343E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F2681DA0C8840095343E /* AppDelegate.swift */; };
-		BC74F26B1DA0C8840095343E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F26A1DA0C8840095343E /* ViewController.swift */; };
 		BC74F2701DA0C8840095343E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC74F26F1DA0C8840095343E /* Assets.xcassets */; };
 		BC74F2731DA0C8840095343E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC74F2711DA0C8840095343E /* LaunchScreen.storyboard */; };
 		BC74F27C1DA0CA640095343E /* SnapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */; };
 		BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */; };
 		BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81FFCE1DA64E0400CDC54F /* Constants.swift */; };
-		BCEBBC401DA4DE1C000E30DF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBBC3F1DA4DE1C000E30DF /* WelcomeViewController.swift */; };
-		BCEBBC451DA5DAAD000E30DF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEBBC441DA5DAAD000E30DF /* SignupViewController.swift */; };
 		BCF40CCE1DA6135B00467FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CCC1DA6135B00467FD2 /* Main.storyboard */; };
-		BCF40CD01DA613ED00467FD2 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF40CCF1DA613ED00467FD2 /* loginViewController.swift */; };
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -30,21 +35,26 @@
 		922E08935111C549DFA0D0F1 /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
 		B27972AAAC38374FAFFFB4CC /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BC2BEA621DADEBE8004315D6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		BC2BEA631DADEBE8004315D6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		BC2BEA671DADEFB5004315D6 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		BC2BEA6A1DADF718004315D6 /* CustomizableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableButton.swift; sourceTree = "<group>"; };
+		BC2BEA6B1DADF718004315D6 /* CustomizableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableImageView.swift; sourceTree = "<group>"; };
+		BC2BEA6C1DADF718004315D6 /* CustomizableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableTextField.swift; sourceTree = "<group>"; };
+		BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		BC2BEA721DAE4267004315D6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC3444E91DACB68A00782EAC /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		BC74F2651DA0C8840095343E /* Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whisper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC74F2681DA0C8840095343E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC74F26A1DA0C8840095343E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BC74F26F1DA0C8840095343E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC74F2721DA0C8840095343E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC74F2741DA0C8840095343E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapContainerViewController.swift; sourceTree = "<group>"; };
 		BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		BC81FFCE1DA64E0400CDC54F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BCEBBC3F1DA4DE1C000E30DF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		BCEBBC441DA5DAAD000E30DF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BCF40CCD1DA6135B00467FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BCF40CCF1DA613ED00467FD2 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +77,27 @@
 				43C59571751B661BD1C03749 /* Pods-Whisper.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC2BEA5E1DADBA02004315D6 /* Camera View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Camera View";
+			sourceTree = "<group>";
+		};
+		BC2BEA691DADF70A004315D6 /* Customizable Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */,
+				BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */,
+				BC3444E91DACB68A00782EAC /* SCLAlertView.swift */,
+				BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */,
+				BC2BEA6A1DADF718004315D6 /* CustomizableButton.swift */,
+				BC2BEA6B1DADF718004315D6 /* CustomizableImageView.swift */,
+				BC2BEA6C1DADF718004315D6 /* CustomizableTextField.swift */,
+			);
+			name = "Customizable Views";
 			sourceTree = "<group>";
 		};
 		BC74F25C1DA0C8840095343E = {
@@ -94,14 +125,8 @@
 				BC81FFD11DA6523B00CDC54F /* View */,
 				BC81FFD21DA6524100CDC54F /* Controller */,
 				BC81FFD31DA6527E00CDC54F /* Support Files */,
-				BC3444E91DACB68A00782EAC /* SCLAlertView.swift */,
-				BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */,
-				BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */,
-				BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */,
 				BC74F2681DA0C8840095343E /* AppDelegate.swift */,
-				BC74F26A1DA0C8840095343E /* ViewController.swift */,
 				BC74F26F1DA0C8840095343E /* Assets.xcassets */,
-				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
 			);
 			path = Whisper;
 			sourceTree = "<group>";
@@ -109,7 +134,9 @@
 		BC81FFD01DA6523000CDC54F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC2BEA671DADEFB5004315D6 /* AuthenticationService.swift */,
 				BC81FFCE1DA64E0400CDC54F /* Constants.swift */,
+				BC2BEA721DAE4267004315D6 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -126,7 +153,10 @@
 		BC81FFD21DA6524100CDC54F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BC81FFD41DA65CB200CDC54F /* login views */,
+				BC81FFD41DA65CB200CDC54F /* Authentication Controllers */,
+				BC2BEA5E1DADBA02004315D6 /* Camera View */,
+				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
+				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -134,20 +164,21 @@
 		BC81FFD31DA6527E00CDC54F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC2BEA691DADF70A004315D6 /* Customizable Views */,
 				BC74F2741DA0C8840095343E /* Info.plist */,
 				BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
-		BC81FFD41DA65CB200CDC54F /* login views */ = {
+		BC81FFD41DA65CB200CDC54F /* Authentication Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BCEBBC3F1DA4DE1C000E30DF /* WelcomeViewController.swift */,
-				BCEBBC441DA5DAAD000E30DF /* SignupViewController.swift */,
-				BCF40CCF1DA613ED00467FD2 /* loginViewController.swift */,
+				BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */,
+				BC2BEA631DADEBE8004315D6 /* SignupViewController.swift */,
+				BC2BEA621DADEBE8004315D6 /* ResetPasswordViewController.swift */,
 			);
-			name = "login views";
+			name = "Authentication Controllers";
 			sourceTree = "<group>";
 		};
 		F3412FD520FD1F757C85404D /* Frameworks */ = {
@@ -284,16 +315,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC2BEA6E1DADF718004315D6 /* CustomizableImageView.swift in Sources */,
+				BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */,
+				BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */,
 				BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */,
-				BC74F26B1DA0C8840095343E /* ViewController.swift in Sources */,
-				BCEBBC451DA5DAAD000E30DF /* SignupViewController.swift in Sources */,
+				BC2BEA731DAE4267004315D6 /* User.swift in Sources */,
+				BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */,
+				BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */,
+				BC2BEA6F1DADF718004315D6 /* CustomizableTextField.swift in Sources */,
 				BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */,
 				BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */,
 				BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */,
-				BCF40CD01DA613ED00467FD2 /* loginViewController.swift in Sources */,
-				BCEBBC401DA4DE1C000E30DF /* WelcomeViewController.swift in Sources */,
 				BC74F2691DA0C8840095343E /* AppDelegate.swift in Sources */,
+				BC2BEA651DADEBE8004315D6 /* ResetPasswordViewController.swift in Sources */,
 				BC74F27C1DA0CA640095343E /* SnapContainerViewController.swift in Sources */,
+				BC2BEA711DAE3843004315D6 /* MyProfileViewController.swift in Sources */,
 				BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
