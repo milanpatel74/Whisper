@@ -51,11 +51,18 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
+        fetchMessges()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    func fetchMessges() {
+        
+        //messages.removeAll(keepingCapacity: false)
         let messageQuery = databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").queryLimited(toLast: 30)
         messageQuery.observe(.childAdded, with: { (snapshot) in
             let snap = snapshot.value! as! [String: AnyObject]
@@ -71,7 +78,6 @@ class ChatViewController: JSQMessagesViewController {
             //alertView.showError("Message Error", subTitle: error.localizedDescription)
         }
     }
-    
     
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
@@ -109,6 +115,16 @@ class ChatViewController: JSQMessagesViewController {
         let message = Message(text: text, senderId: senderId, username: senderDisplayName)
         messageRef.setValue(message.toAnyObject()) { (error, ref) in
             if error == nil {
+                let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
+                lastMessageRef.setValue(text, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        // Send a notification
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
+                    } else {
+                        let alertView = SCLAlertView()
+                        alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                    }
+                })
                 JSQSystemSoundPlayer.jsq_playMessageSentSound()
                 self.finishSendingMessage()
                 self.isTyping = false
