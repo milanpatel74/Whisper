@@ -8,5 +8,6 @@ target 'Whisper' do
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'KRProgressHUD'
+  pod 'JSQMessagesViewController'
 end
 
