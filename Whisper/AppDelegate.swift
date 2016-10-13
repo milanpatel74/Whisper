@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func  logUser() {
         if FIRAuth.auth()!.currentUser != nil {
-            print("\n\n\n")
-            print("Hello")
+
             print(FIRAuth.auth()!.currentUser?.uid)
             
             // Define the snapchat scroll view.

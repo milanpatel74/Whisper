@@ -32,6 +32,8 @@
 		BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521621DAF05F5007BE919 /* ChatRoom.swift */; };
 		BC9521651DAF098A007BE919 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521641DAF098A007BE919 /* ChatFunctions.swift */; };
 		BC9521681DAF2063007BE919 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521671DAF2063007BE919 /* ChatViewController.swift */; };
+		BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95216B1DAF5F26007BE919 /* ChatListTableViewController.swift */; };
+		BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */; };
 		BCF40CCE1DA6135B00467FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CCC1DA6135B00467FD2 /* Main.storyboard */; };
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,9 @@
 		BC9521621DAF05F5007BE919 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		BC9521641DAF098A007BE919 /* ChatFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		BC9521671DAF2063007BE919 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BC95216B1DAF5F26007BE919 /* ChatListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
+		BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		BC95216F1DAF850E007BE919 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
 		BCF40CCD1DA6135B00467FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +147,7 @@
 		BC74F2671DA0C8840095343E /* Whisper */ = {
 			isa = PBXGroup;
 			children = (
+				BC95216F1DAF850E007BE919 /* MyPlayground.playground */,
 				BC81FFD01DA6523000CDC54F /* Model */,
 				BC81FFD11DA6523B00CDC54F /* View */,
 				BC81FFD21DA6524100CDC54F /* Controller */,
@@ -210,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				BC9521671DAF2063007BE919 /* ChatViewController.swift */,
+				BC95216B1DAF5F26007BE919 /* ChatListTableViewController.swift */,
+				BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */,
 			);
 			name = "Chat Controllers";
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				BC9521611DAF03C3007BE919 /* Message.swift in Sources */,
 				BC2BEA6E1DADF718004315D6 /* CustomizableImageView.swift in Sources */,
 				BC9521681DAF2063007BE919 /* ChatViewController.swift in Sources */,
+				BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */,
 				BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */,
 				BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */,
 				BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */,
@@ -377,6 +386,7 @@
 				BC2BEA711DAE3843004315D6 /* MyProfileViewController.swift in Sources */,
 				BC097D8F1DAEE94C00BC8DCC /* UsersTableViewCell.swift in Sources */,
 				BC9521651DAF098A007BE919 /* ChatFunctions.swift in Sources */,
+				BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */,
 				BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */,
 				BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */,
 			);
@@ -505,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 540D045A9089A4F272E9F510 /* Pods-Whisper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UFCM2756LW;
 				INFOPLIST_FILE = Whisper/Info.plist;
@@ -520,6 +531,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UFCM2756LW;
 				INFOPLIST_FILE = Whisper/Info.plist;

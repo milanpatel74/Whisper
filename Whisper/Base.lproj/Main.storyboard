@@ -120,7 +120,7 @@
                                             <frame key="frameInset" minX="8" minY="8" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffD-TR-pQ8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffD-TR-pQ8">
                                             <frame key="frameInset" minX="85" minY="13" width="282" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -131,7 +131,7 @@
                                             <frame key="frameInset" minX="85" minY="42" width="282" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -156,24 +156,62 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMV-Ar-NXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="866"/>
+            <point key="canvasLocation" x="-375" y="866"/>
         </scene>
-        <!--Chat-->
+        <!--Chats-->
         <scene sceneID="moB-fz-Dw1">
             <objects>
-                <tableViewController id="s8G-o0-mCL" sceneMemberID="viewController">
+                <tableViewController id="s8G-o0-mCL" customClass="ChatListTableViewController" customModule="Whisper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gtz-L3-Jt5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="IiH-By-nVf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="chatListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatlistCell" rowHeight="76" id="IiH-By-nVf" customClass="ChatListTableViewCell" customModule="Whisper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IiH-By-nVf" id="1YD-fq-rgr">
                                     <frame key="frameInset" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9AV-Ij-2nb" customClass="CustomizableImageView" customModule="Whisper" customModuleProvider="target">
+                                            <frame key="frameInset" minX="8" minY="8" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-KW-NcB">
+                                            <frame key="frameInset" minX="85" minY="13" width="243" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USF-RX-4Uu">
+                                            <frame key="frameInset" minX="85" minY="42" width="282" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ob-Mf-5fZ">
+                                            <frame key="frameInset" minX="322" minY="13" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="5ob-Mf-5fZ" id="xdW-nI-fq0"/>
+                                    <outlet property="lastMessageLabel" destination="USF-RX-4Uu" id="Dp3-6Y-ROY"/>
+                                    <outlet property="userImageView" destination="9AV-Ij-2nb" id="xrT-ck-sxC"/>
+                                    <outlet property="usernameLabel" destination="MDw-KW-NcB" id="7ym-SP-SlD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,14 +219,14 @@
                             <outlet property="delegate" destination="s8G-o0-mCL" id="tQq-eJ-eab"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Chat" id="hRy-YP-eD8"/>
+                    <navigationItem key="navigationItem" title="Chats" id="hRy-YP-eD8"/>
                     <connections>
-                        <segue destination="EaG-bh-XY4" kind="show" id="YnR-fT-kYz"/>
+                        <segue destination="EaG-bh-XY4" kind="show" identifier="goToChatFromChats" id="YnR-fT-kYz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g0-gx-0ap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1495" y="1662"/>
+            <point key="canvasLocation" x="-1212" y="1660"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="g1K-Z2-GhA">
@@ -206,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3S-Yd-L3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="1662"/>
+            <point key="canvasLocation" x="-375" y="1661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uak-sY-wyB">
@@ -311,7 +349,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qib-bc-CQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1496" y="2479"/>
+            <point key="canvasLocation" x="-1212" y="2479"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wqk-gc-wTh">
@@ -696,7 +734,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1493" y="-1499"/>
+            <point key="canvasLocation" x="-1212" y="-1498"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="Krm-Mw-2Vl">
@@ -800,7 +838,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lii-IV-fCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hPW-Ox-fWU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-963" y="-1499"/>
+            <point key="canvasLocation" x="-375" y="-1498"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C46-wG-6l3">
@@ -819,7 +857,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdc-4h-Nyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1494" y="866"/>
+            <point key="canvasLocation" x="-1212" y="866"/>
         </scene>
     </scenes>
     <resources>

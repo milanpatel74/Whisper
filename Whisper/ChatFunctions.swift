@@ -41,9 +41,6 @@ struct ChatFunctions {
             var createChatRoom = true
             
             // Just for test.
-            // print("\n\n\n")
-            // print(snapshot)
-            // print("\n\n\n")
             if snapshot.exists() {
                 for chatRoom in (snapshot.value! as AnyObject).allValues {
                     let chatRoomANO = chatRoom as! [String: AnyObject]
