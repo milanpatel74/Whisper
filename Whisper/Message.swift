@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct message {
+struct Message {
     var text: String!
     var senderId: String!
     var username: String!

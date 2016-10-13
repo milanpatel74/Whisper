@@ -9,5 +9,6 @@ target 'Whisper' do
   pod 'Firebase/Messaging'
   pod 'KRProgressHUD'
   pod 'JSQMessagesViewController'
+  pod 'CameraManager', '~> 3.0'
 end
 

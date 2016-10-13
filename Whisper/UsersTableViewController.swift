@@ -12,6 +12,9 @@ import Firebase
 class UsersTableViewController: UITableViewController {
 
     var userArray = [User]()
+    var chatFunctions = ChatFunctions()
+    
+    
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
@@ -114,6 +117,13 @@ class UsersTableViewController: UITableViewController {
         return 76
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentUser = User(username: FIRAuth.auth()!.currentUser!.displayName!, userId: FIRAuth.auth()!.currentUser!.uid, photoUrl: "\(FIRAuth.auth()!.currentUser!.photoURL!)")
+        chatFunctions.startChat(user1: currentUser, user2: userArray[indexPath.row])
+        
+        performSegue(withIdentifier: "goToChatFromFriends", sender: self)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -150,14 +160,20 @@ class UsersTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "goToChatFromFriends" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.senderId = FIRAuth.auth()!.currentUser!.uid
+            chatVC.senderDisplayName = FIRAuth.auth()!.currentUser!.displayName
+            chatVC.chatRoomId = chatFunctions.chatRoom_id
+        }
     }
-    */
+ 
 
 }

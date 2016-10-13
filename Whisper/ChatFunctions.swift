@@ -35,9 +35,15 @@ struct ChatFunctions {
     
     private func createChatRoomId(user1: User, user2: User, members: [String], chatRoomId: String) {
         
-        let chatRoomRef = databaseRef.child("ChatRooms").queryOrdered(byChild: "charRoomId").queryEqual(toValue: chatRoomId)
-        chatRoomRef.observe(.value, with: { (snapshot) in
+        let chatRoomRef = databaseRef.child("ChatRooms").queryOrdered(byChild: "chatRoomId").queryEqual(toValue: chatRoomId)
+        chatRoomRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        //chatRoomRef.observe(.value, with: { (snapshot) in
             var createChatRoom = true
+            
+            // Just for test.
+            // print("\n\n\n")
+            // print(snapshot)
+            // print("\n\n\n")
             if snapshot.exists() {
                 for chatRoom in (snapshot.value! as AnyObject).allValues {
                     let chatRoomANO = chatRoom as! [String: AnyObject]
@@ -49,6 +55,8 @@ struct ChatFunctions {
             if createChatRoom {
                 self.createNewChatRoomId(username: user1.username, other_Username: user2.username, userId: user1.uid, other_UserId: user2.uid, members: members, chatRoomId: chatRoomId, lastMessage: "", userPhotoUrl: user1.photoURL, other_UserPhotoUrl: user2.photoURL)
             }
+            // Just for test.
+            // print("\n\n\n\n\n\(createChatRoom)\n\n\n\n\n")
             
         }) { (error) in
             let alertView = SCLAlertView()

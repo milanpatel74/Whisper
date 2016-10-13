@@ -84,8 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Whisper/CameraManager.framework"
+  install_framework "Pods-Whisper/JSQMessagesViewController.framework"
+  install_framework "Pods-Whisper/JSQSystemSoundPlayer.framework"
   install_framework "Pods-Whisper/KRProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Whisper/CameraManager.framework"
+  install_framework "Pods-Whisper/JSQMessagesViewController.framework"
+  install_framework "Pods-Whisper/JSQSystemSoundPlayer.framework"
   install_framework "Pods-Whisper/KRProgressHUD.framework"
 fi

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		586A1202FA895344CA4C74A4 /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27972AAAC38374FAFFFB4CC /* Pods_Whisper.framework */; };
+		84F6982BDC6099AACE779DED /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E50663729975CC9C1752FB /* Pods_Whisper.framework */; };
 		BC097D8F1DAEE94C00BC8DCC /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */; };
 		BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */; };
 		BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */; };
@@ -37,9 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		43C59571751B661BD1C03749 /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
-		922E08935111C549DFA0D0F1 /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
-		B27972AAAC38374FAFFFB4CC /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E50663729975CC9C1752FB /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		540D045A9089A4F272E9F510 /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
+		921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
 		BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -75,36 +75,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				586A1202FA895344CA4C74A4 /* Pods_Whisper.framework in Frameworks */,
+				84F6982BDC6099AACE779DED /* Pods_Whisper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9092B1BEE85D27F141BB7CC3 /* Pods */ = {
+		58B76C5CE2E241E3BF92547F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				922E08935111C549DFA0D0F1 /* Pods-Whisper.debug.xcconfig */,
-				43C59571751B661BD1C03749 /* Pods-Whisper.release.xcconfig */,
+				26E50663729975CC9C1752FB /* Pods_Whisper.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BC097D8D1DAEE92800BC8DCC /* Users View */ = {
+		BC097D8D1DAEE92800BC8DCC /* Users Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */,
 				BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */,
+				BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */,
 			);
-			name = "Users View";
+			name = "Users Controllers";
 			sourceTree = "<group>";
 		};
-		BC2BEA5E1DADBA02004315D6 /* Camera View */ = {
+		BC2BEA5E1DADBA02004315D6 /* Camera Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
 			);
-			name = "Camera View";
+			name = "Camera Controllers";
 			sourceTree = "<group>";
 		};
 		BC2BEA691DADF70A004315D6 /* Customizable Views */ = {
@@ -126,8 +126,8 @@
 			children = (
 				BC74F2671DA0C8840095343E /* Whisper */,
 				BC74F2661DA0C8840095343E /* Products */,
-				9092B1BEE85D27F141BB7CC3 /* Pods */,
-				F3412FD520FD1F757C85404D /* Frameworks */,
+				D8E7922C54FB4D03D7F30116 /* Pods */,
+				58B76C5CE2E241E3BF92547F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,12 +177,11 @@
 		BC81FFD21DA6524100CDC54F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BC9521661DAF2044007BE919 /* Chat View */,
-				BC097D8D1DAEE92800BC8DCC /* Users View */,
+				BC9521691DAF2B38007BE919 /* Profile Controllers */,
+				BC9521661DAF2044007BE919 /* Chat Controllers */,
+				BC097D8D1DAEE92800BC8DCC /* Users Controllers */,
 				BC81FFD41DA65CB200CDC54F /* Authentication Controllers */,
-				BC2BEA5E1DADBA02004315D6 /* Camera View */,
-				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
-				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
+				BC2BEA5E1DADBA02004315D6 /* Camera Controllers */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -207,20 +206,29 @@
 			name = "Authentication Controllers";
 			sourceTree = "<group>";
 		};
-		BC9521661DAF2044007BE919 /* Chat View */ = {
+		BC9521661DAF2044007BE919 /* Chat Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				BC9521671DAF2063007BE919 /* ChatViewController.swift */,
 			);
-			name = "Chat View";
+			name = "Chat Controllers";
 			sourceTree = "<group>";
 		};
-		F3412FD520FD1F757C85404D /* Frameworks */ = {
+		BC9521691DAF2B38007BE919 /* Profile Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B27972AAAC38374FAFFFB4CC /* Pods_Whisper.framework */,
+				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
 			);
-			name = Frameworks;
+			name = "Profile Controllers";
+			sourceTree = "<group>";
+		};
+		D8E7922C54FB4D03D7F30116 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				540D045A9089A4F272E9F510 /* Pods-Whisper.debug.xcconfig */,
+				921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,12 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC74F2771DA0C8840095343E /* Build configuration list for PBXNativeTarget "Whisper" */;
 			buildPhases = (
-				CD174C0A6209B7FFB4EC39CA /* Check Pods Manifest.lock */,
+				E280DA4E59B2B67F37E24880 /* Check Pods Manifest.lock */,
 				BC74F2611DA0C8840095343E /* Sources */,
 				BC74F2621DA0C8840095343E /* Frameworks */,
 				BC74F2631DA0C8840095343E /* Resources */,
-				CBB0B9F97A475E26638F9B7A /* Embed Pods Frameworks */,
-				61BBDD412CA7DCE327BDDF31 /* Copy Pods Resources */,
+				60816985ED3927D6A89CB849 /* Embed Pods Frameworks */,
+				854DF44A7FF232C85779E93F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,22 +305,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61BBDD412CA7DCE327BDDF31 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Whisper/Pods-Whisper-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CBB0B9F97A475E26638F9B7A /* Embed Pods Frameworks */ = {
+		60816985ED3927D6A89CB849 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,7 +320,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Whisper/Pods-Whisper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CD174C0A6209B7FFB4EC39CA /* Check Pods Manifest.lock */ = {
+		854DF44A7FF232C85779E93F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Whisper/Pods-Whisper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E280DA4E59B2B67F37E24880 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,7 +503,7 @@
 		};
 		BC74F2781DA0C8840095343E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 922E08935111C549DFA0D0F1 /* Pods-Whisper.debug.xcconfig */;
+			baseConfigurationReference = 540D045A9089A4F272E9F510 /* Pods-Whisper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UFCM2756LW;
@@ -510,7 +518,7 @@
 		};
 		BC74F2791DA0C8840095343E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43C59571751B661BD1C03749 /* Pods-Whisper.release.xcconfig */;
+			baseConfigurationReference = 921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UFCM2756LW;
