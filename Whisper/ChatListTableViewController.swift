@@ -61,8 +61,9 @@ class ChatListTableViewController: UITableViewController {
             let lastMessage = snap["lastMessage"] as! String
             let userPhotoUrl = snap["userPhotoUrl"] as! String
             let other_UserPhotoUrl = snap["other_UserPhotoUrl"] as! String
+            let date = snap["date"] as! NSNumber
             
-            var newChat = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl)
+            var newChat = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl, date: date)
             newChat.ref = ref
             newChat.key = key
             
@@ -93,8 +94,9 @@ class ChatListTableViewController: UITableViewController {
             let lastMessage = snap["lastMessage"] as! String
             let userPhotoUrl = snap["userPhotoUrl"] as! String
             let other_UserPhotoUrl = snap["other_UserPhotoUrl"] as! String
+            let date = snap["date"] as! NSNumber
             
-            var newChat = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl)
+            var newChat = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl, date: date)
             newChat.ref = ref
             newChat.key = key
             
@@ -137,6 +139,34 @@ class ChatListTableViewController: UITableViewController {
             userPhotoUrlString = chatsArray[indexPath.row].userPhotoUrl
             cell.usernameLabel.text = chatsArray[indexPath.row].username
         }
+        
+        let fromDate = NSDate(timeIntervalSince1970: TimeInterval(chatsArray[indexPath.row].date))
+        let toDate = NSDate()
+        
+        let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
+        let differenceOfDate = Calendar.current.dateComponents(components, from: fromDate as Date, to: toDate as Date)
+        
+        if differenceOfDate.second! <= 0 {
+            cell.dateLabel.text = "now"
+        } else if differenceOfDate.second! > 0 && differenceOfDate.minute! == 0 {
+            cell.dateLabel.text = "\(differenceOfDate.second!)s"
+        } else if differenceOfDate.minute! > 0 && differenceOfDate.hour! == 0 {
+            cell.dateLabel.text = "\(differenceOfDate.minute!)m"
+        } else if differenceOfDate.hour! > 0 && differenceOfDate.day! == 0 {
+            cell.dateLabel.text = "\(differenceOfDate.hour!)h"
+        } else if differenceOfDate.day! > 0 && differenceOfDate.weekOfMonth! == 0 {
+            cell.dateLabel.text = "\(differenceOfDate.day!)d"
+        } else if differenceOfDate.weekOfMonth! > 0 {
+            cell.dateLabel.text = "\(differenceOfDate.weekOfMonth!)w"
+        }
+        
+        //let components: CFCalendarUnit = [.second, .minute, .hour, .day, .weekOfMonth]
+        //let differenceOfDate = Calendar.current
+        //let differenceOfDate = CFCalendar.currentCalendar().components(components, fromDate: fromDate, toDate: toDate, option: [])
+        
+        //if differenceOfDate.second
+        
+        
         
         // Observe the message of each chat room. Then update the last message label.
         databaseRef.child("ChatRooms").child(chatsArray[indexPath.row].chatRoomId).child("lastMessage").observe(.value, with: { (snapshot) in

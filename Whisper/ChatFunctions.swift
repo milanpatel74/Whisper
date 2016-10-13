@@ -50,7 +50,7 @@ struct ChatFunctions {
                 }
             }
             if createChatRoom {
-                self.createNewChatRoomId(username: user1.username, other_Username: user2.username, userId: user1.uid, other_UserId: user2.uid, members: members, chatRoomId: chatRoomId, lastMessage: "", userPhotoUrl: user1.photoURL, other_UserPhotoUrl: user2.photoURL)
+                self.createNewChatRoomId(username: user1.username, other_Username: user2.username, userId: user1.uid, other_UserId: user2.uid, members: members, chatRoomId: chatRoomId, lastMessage: "", userPhotoUrl: user1.photoURL, other_UserPhotoUrl: user2.photoURL, date: NSNumber(value: NSDate().timeIntervalSince1970))
             }
             // Just for test.
             // print("\n\n\n\n\n\(createChatRoom)\n\n\n\n\n")
@@ -62,9 +62,9 @@ struct ChatFunctions {
         
     }
     
-    private func createNewChatRoomId(username: String, other_Username: String, userId: String, other_UserId: String, members: [String], chatRoomId: String, lastMessage: String, userPhotoUrl: String, other_UserPhotoUrl: String) {
+    private func createNewChatRoomId(username: String, other_Username: String, userId: String, other_UserId: String, members: [String], chatRoomId: String, lastMessage: String, userPhotoUrl: String, other_UserPhotoUrl: String, date: NSNumber) {
         
-        let newChatRoom = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl)
+        let newChatRoom = ChatRoom(username: username, other_Username: other_Username, userId: userId, other_UserId: other_UserId, members: members, chatRoomId: chatRoomId, lastMessage: lastMessage, userPhotoUrl: userPhotoUrl, other_UserPhotoUrl: other_UserPhotoUrl, date: date)
         
         let chatRoomRef = databaseRef.child("ChatRooms").child(chatRoomId)
         chatRoomRef.setValue(newChatRoom.toAnyObject())

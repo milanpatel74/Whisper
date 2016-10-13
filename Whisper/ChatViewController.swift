@@ -115,6 +115,7 @@ class ChatViewController: JSQMessagesViewController {
         let message = Message(text: text, senderId: senderId, username: senderDisplayName)
         messageRef.setValue(message.toAnyObject()) { (error, ref) in
             if error == nil {
+                
                 let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
                 lastMessageRef.setValue(text, withCompletionBlock: { (error, ref) in
                     if error == nil {
@@ -125,6 +126,18 @@ class ChatViewController: JSQMessagesViewController {
                         alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                     }
                 })
+                
+                let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
+                lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        // Nothing
+                    } else {
+                        let alertView = SCLAlertView()
+                        alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                    }
+                })
+                
+                
                 JSQSystemSoundPlayer.jsq_playMessageSentSound()
                 self.finishSendingMessage()
                 self.isTyping = false

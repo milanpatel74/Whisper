@@ -20,6 +20,7 @@ struct ChatRoom {
     var userPhotoUrl: String!
     var other_UserPhotoUrl: String!
     var key: String = ""
+    var date: NSNumber!
     var ref: FIRDatabaseReference!
     
     init(snapshot: FIRDataSnapshot) {
@@ -35,9 +36,10 @@ struct ChatRoom {
         self.lastMessage = snap["lastMessage"] as! String
         self.userPhotoUrl = snap["userPhotoUrl"] as! String
         self.other_UserPhotoUrl = snap["other_UserPhotoUrl"] as! String
+        self.date = snap["date"] as! NSNumber
     }
     
-    init(username: String, other_Username: String, userId: String, other_UserId: String, members: [String], chatRoomId: String, lastMessage: String, userPhotoUrl: String, other_UserPhotoUrl: String, key: String = "") {
+    init(username: String, other_Username: String, userId: String, other_UserId: String, members: [String], chatRoomId: String, lastMessage: String, userPhotoUrl: String, other_UserPhotoUrl: String, key: String = "", date: NSNumber!) {
         self.username = username
         self.other_Username = other_Username
         self.userId = userId
@@ -47,6 +49,7 @@ struct ChatRoom {
         self.lastMessage = lastMessage
         self.userPhotoUrl = userPhotoUrl
         self.other_UserPhotoUrl = other_UserPhotoUrl
+        self.date = date
     }
     
     func toAnyObject() -> [String: AnyObject] {
@@ -58,7 +61,8 @@ struct ChatRoom {
                 "chatRoomId": chatRoomId as AnyObject,
                 "lastMessage": lastMessage as AnyObject,
                 "userPhotoUrl": userPhotoUrl as AnyObject,
-                "other_UserPhotoUrl": other_UserPhotoUrl as AnyObject]
+                "other_UserPhotoUrl": other_UserPhotoUrl as AnyObject,
+                "date": date as AnyObject]
     }
     
     
