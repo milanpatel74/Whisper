@@ -128,6 +128,7 @@ class UsersTableViewController: UITableViewController {
         chatFunctions.startChat(user1: currentUser, user2: userArray[indexPath.row])
         
         performSegue(withIdentifier: "goToChatFromFriends", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 

@@ -69,8 +69,17 @@ class SettingsTableViewController: UITableViewController {
                 self.deleteAccount()
             })
             deleteAlertView.showWarning("Warning", subTitle: "Are you sure that you want to delete your account?")
+        } else if indexPath.section == 2 && indexPath.row == 1 {
+            resetPassword()
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    // This is the function to reset the user password.
+    func resetPassword() {
+        let email = FIRAuth.auth()!.currentUser!.email!
+        AuthenticationService().resetPassword(email: email)
     }
     
     // This is the function to delete the account.

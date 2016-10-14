@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import JSQMessagesViewController
+import MobileCoreServices
+import AVKit
 
 
-class ChatViewController: JSQMessagesViewController {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var chatRoomId: String!
     var messages = [JSQMessage]()
@@ -50,6 +52,9 @@ class ChatViewController: JSQMessagesViewController {
         
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        // 更改聊天桌面
+        collectionView.backgroundView = UIImageView.init(image: UIImage(named: "wallpaper-2"))
         
         fetchMessges()
 
@@ -149,14 +154,76 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        let alertController = UIAlertController(title: "Medias", message: "Choose your media type", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        // 添加图片按钮
+        let imageAction = UIAlertAction(title: "Image", style: .default) { (action) in
+            print("Image")
+            self.getMedia(mediaType: kUTTypeImage)
+        }
+        
+        // 添加视频按钮
+        let videoAction = UIAlertAction(title: "Video", style: .default) { (action) in
+            print("Video")
+            self.getMedia(mediaType: kUTTypeMovie)
+        }
+        
+        // 添加取消按钮
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(imageAction)
+        alertController.addAction(videoAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // If the media is a picture type
+        if let picture = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let photo = JSQPhotoMediaItem(image: picture)
+            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
+        }
+        // If the media is a video type
+        else if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL {
+            let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true)
+            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video))
+        }
+        self.dismiss(animated: true) { 
+            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+            self.finishSendingMessage()
+        }
+
+    }
+    
+    
+    func getMedia(mediaType: CFString) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        if mediaType == kUTTypeImage {
+            imagePicker.mediaTypes = [mediaType as String]
+            
+        } else if mediaType == kUTTypeMovie {
+            imagePicker.mediaTypes = [mediaType as String]
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    // 确定视图中信息的数量
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
+    // 确定聊天窗口中头像信息
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
     }
     
+    // 确定聊天窗口中的气泡类型
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item]
         if message.senderId == senderId {
@@ -166,10 +233,12 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    // 确定信息的数据来源
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
     
+    // 根据IndexPath对气泡进行设置
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
@@ -181,21 +250,18 @@ class ChatViewController: JSQMessagesViewController {
         return cell
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        let message = messages[indexPath.item]
+        if message.isMediaMessage {
+            if let media = message.media as? JSQVideoMediaItem {
+                let player = AVPlayer(url: media.fileURL)
+                let avPlayerViewController = AVPlayerViewController()
+                avPlayerViewController.player = player
+                self.present(avPlayerViewController, animated: true, completion: nil)
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

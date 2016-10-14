@@ -12,7 +12,8 @@ import Firebase
 class ChatListTableViewController: UITableViewController {
 
     var chatsArray = [ChatRoom]()
-    
+    var chatFunctions = ChatFunctions()
+
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
@@ -223,6 +224,22 @@ class ChatListTableViewController: UITableViewController {
         }    
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentUser = User(username: FIRAuth.auth()!.currentUser!.displayName!, userId: FIRAuth.auth()!.currentUser!.uid, photoUrl: "\(FIRAuth.auth()!.currentUser!.photoURL!)")
+        var otherUser: User!
+        if currentUser.uid == chatsArray[indexPath.row].userId {
+            otherUser = User(username: chatsArray[indexPath.row].other_Username, userId: chatsArray[indexPath.row].other_UserId, photoUrl: chatsArray[indexPath.row].other_UserPhotoUrl)
+        } else {
+            otherUser = User(username: chatsArray[indexPath.row].username, userId: chatsArray[indexPath.row].userId, photoUrl: chatsArray[indexPath.row].userPhotoUrl)
+        }
+        
+        chatFunctions.startChat(user1: currentUser, user2: otherUser)
+
+        
+        performSegue(withIdentifier: "goToChatFromChats", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -239,14 +256,16 @@ class ChatListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "goToChatFromChats" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.senderId = FIRAuth.auth()!.currentUser!.uid
+            chatVC.senderDisplayName = FIRAuth.auth()!.currentUser!.displayName
+            chatVC.chatRoomId = chatFunctions.chatRoom_id
+        }
     }
-    */
+
 
 }
