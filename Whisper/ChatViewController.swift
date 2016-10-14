@@ -6,6 +6,8 @@
 //  Copyright © 2016年 unimelb. All rights reserved.
 //
 
+// 待修复的BUG：并不能判断Media消息来自于哪边，都默认当作发出的消息
+
 import UIKit
 import Firebase
 import JSQMessagesViewController
@@ -408,6 +410,11 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 let avPlayerViewController = AVPlayerViewController()
                 avPlayerViewController.player = player
                 self.present(avPlayerViewController, animated: true, completion: nil)
+            }
+            if let photo = message.media as? JSQPhotoMediaItem {
+                let imageMessageView = photo.mediaView() as! UIImageView
+                imageMessageView.setupForImageViewer()
+                imageMessageView.setupForImageViewer(UIColor.black)
             }
         }
     }

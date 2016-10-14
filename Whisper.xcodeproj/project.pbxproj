@@ -36,6 +36,8 @@
 		BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */; };
 		BC99DA601DB05319002A816C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */; };
 		BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */; };
+		BC99DA871DB115C6002A816C /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA851DB115C6002A816C /* ImageViewer.swift */; };
+		BC99DA881DB115C6002A816C /* UIImageView+ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA861DB115C6002A816C /* UIImageView+ImageViewer.swift */; };
 		BCF40CCE1DA6135B00467FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CCC1DA6135B00467FD2 /* Main.storyboard */; };
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		BC95216F1DAF850E007BE919 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
 		BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		BC99DA851DB115C6002A816C /* ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
+		BC99DA861DB115C6002A816C /* UIImageView+ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageViewer.swift"; sourceTree = "<group>"; };
 		BCF40CCD1DA6135B00467FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 		BC2BEA691DADF70A004315D6 /* Customizable Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC99DA851DB115C6002A816C /* ImageViewer.swift */,
+				BC99DA861DB115C6002A816C /* UIImageView+ImageViewer.swift */,
 				BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */,
 				BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */,
 				BC3444E91DACB68A00782EAC /* SCLAlertView.swift */,
@@ -152,9 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				BC95216F1DAF850E007BE919 /* MyPlayground.playground */,
-				BC81FFD01DA6523000CDC54F /* Model */,
-				BC81FFD11DA6523B00CDC54F /* View */,
-				BC81FFD21DA6524100CDC54F /* Controller */,
+				BC81FFD01DA6523000CDC54F /* Models */,
+				BC81FFD11DA6523B00CDC54F /* Views */,
+				BC81FFD21DA6524100CDC54F /* Controllers */,
 				BC81FFD31DA6527E00CDC54F /* Support Files */,
 				BC74F2681DA0C8840095343E /* AppDelegate.swift */,
 				BC74F26F1DA0C8840095343E /* Assets.xcassets */,
@@ -162,7 +168,7 @@
 			path = Whisper;
 			sourceTree = "<group>";
 		};
-		BC81FFD01DA6523000CDC54F /* Model */ = {
+		BC81FFD01DA6523000CDC54F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				BC2BEA671DADEFB5004315D6 /* AuthenticationService.swift */,
@@ -172,19 +178,19 @@
 				BC9521621DAF05F5007BE919 /* ChatRoom.swift */,
 				BC9521641DAF098A007BE919 /* ChatFunctions.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
-		BC81FFD11DA6523B00CDC54F /* View */ = {
+		BC81FFD11DA6523B00CDC54F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				BCF40CCC1DA6135B00467FD2 /* Main.storyboard */,
 				BC74F2711DA0C8840095343E /* LaunchScreen.storyboard */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		BC81FFD21DA6524100CDC54F /* Controller */ = {
+		BC81FFD21DA6524100CDC54F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				BC9521691DAF2B38007BE919 /* Profile Controllers */,
@@ -193,7 +199,7 @@
 				BC81FFD41DA65CB200CDC54F /* Authentication Controllers */,
 				BC2BEA5E1DADBA02004315D6 /* Camera Controllers */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		BC81FFD31DA6527E00CDC54F /* Support Files */ = {
@@ -377,7 +383,9 @@
 				BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */,
 				BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */,
 				BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */,
+				BC99DA871DB115C6002A816C /* ImageViewer.swift in Sources */,
 				BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */,
+				BC99DA881DB115C6002A816C /* UIImageView+ImageViewer.swift in Sources */,
 				BC2BEA731DAE4267004315D6 /* User.swift in Sources */,
 				BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */,
 				BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */,
