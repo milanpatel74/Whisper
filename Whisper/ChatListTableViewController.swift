@@ -26,6 +26,9 @@ class ChatListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        
         fetchChats()
         NotificationCenter.default.addObserver(self, selector: #selector(ChatListTableViewController.fetchChats), name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
         // Uncomment the following line to preserve selection between presentations
@@ -191,6 +194,10 @@ class ChatListTableViewController: UITableViewController {
 
         // Configure the cell...
 
+        
+        cell.userImageView.layer.cornerRadius = 30.0
+        cell.userImageView.clipsToBounds = true
+        
         return cell
     }
     

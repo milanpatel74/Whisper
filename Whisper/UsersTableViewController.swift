@@ -32,7 +32,9 @@ class UsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        //tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -110,6 +112,10 @@ class UsersTableViewController: UITableViewController {
         
         // Configure the cell...
 
+        cell.userImageView.layer.cornerRadius = 30.0
+        cell.userImageView.clipsToBounds = true
+
+        
         return cell
     }
  

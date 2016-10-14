@@ -34,6 +34,8 @@
 		BC9521681DAF2063007BE919 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521671DAF2063007BE919 /* ChatViewController.swift */; };
 		BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95216B1DAF5F26007BE919 /* ChatListTableViewController.swift */; };
 		BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */; };
+		BC99DA601DB05319002A816C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */; };
+		BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */; };
 		BCF40CCE1DA6135B00467FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CCC1DA6135B00467FD2 /* Main.storyboard */; };
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		BC95216B1DAF5F26007BE919 /* ChatListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		BC95216D1DAF5F3B007BE919 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		BC95216F1DAF850E007BE919 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
+		BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		BCF40CCD1DA6135B00467FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
+				BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */,
+				BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */,
 			);
 			name = "Profile Controllers";
 			sourceTree = "<group>";
@@ -376,6 +382,8 @@
 				BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */,
 				BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */,
 				BC2BEA6F1DADF718004315D6 /* CustomizableTextField.swift in Sources */,
+				BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */,
+				BC99DA601DB05319002A816C /* SettingsTableViewController.swift in Sources */,
 				BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */,
 				BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */,
 				BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */,
