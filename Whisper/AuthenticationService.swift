@@ -60,8 +60,10 @@ struct AuthenticationService {
             if error == nil {
                 self.setUserInfo(user: user, username: username, password: password, country: country, biography: biography, data: data)
             }else {
-                let alertView =  SCLAlertView()
-                alertView.showError("😁OOPS😁", subTitle: error!.localizedDescription)
+                DispatchQueue.main.async {
+                    let alertView =  SCLAlertView()
+                    alertView.showError("😁OOPS😁", subTitle: error!.localizedDescription)
+                }
             }
         })
         
@@ -74,7 +76,6 @@ struct AuthenticationService {
                 
                 DispatchQueue.main.async {
                     let alertView =  SCLAlertView()
-                    
                     alertView.showSuccess("Resetting Password", subTitle: "An email containing the different information on how to reset your password has been sent to \(email)")
                 }
                 

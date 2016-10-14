@@ -134,12 +134,12 @@ class ChatListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatlistCell", for: indexPath) as! ChatListTableViewCell
-        var userPhotoUrlString: String? = ""
+        var userPhotoUrlString: String! = ""
         if chatsArray[indexPath.row].userId == FIRAuth.auth()!.currentUser!.uid {
-            userPhotoUrlString = chatsArray[indexPath.row].other_UserPhotoUrl
+            userPhotoUrlString = chatsArray[indexPath.row].other_UserPhotoUrl!
             cell.usernameLabel.text = chatsArray[indexPath.row].other_Username
         } else {
-            userPhotoUrlString = chatsArray[indexPath.row].userPhotoUrl
+            userPhotoUrlString = chatsArray[indexPath.row].userPhotoUrl!
             cell.usernameLabel.text = chatsArray[indexPath.row].username
         }
         

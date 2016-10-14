@@ -119,7 +119,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2vv-7w-2jg" id="KY5-2J-jGN">
-                                    <frame key="frameInset" width="375" height="75.5"/>
+                                    <frame key="frameInset" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="FnN-9D-LuN">
@@ -404,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IiH-By-nVf" id="1YD-fq-rgr">
-                                    <frame key="frameInset" width="375" height="75.5"/>
+                                    <frame key="frameInset" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9AV-Ij-2nb" customClass="CustomizableImageView" customModule="Whisper" customModuleProvider="target">
@@ -568,7 +568,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73M-0p-j3D" id="kMT-Qp-733">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -638,7 +638,7 @@
         <scene sceneID="yly-DA-eZy">
             <objects>
                 <navigationController storyboardIdentifier="bottom" id="tdy-QR-2NK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oQq-ro-26a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oQq-ro-26a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1097,7 +1097,7 @@
             <objects>
                 <navigationController storyboardIdentifier="top" automaticallyAdjustsScrollViewInsets="NO" id="dMJ-da-Iql" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="KFF-Ln-nCc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KFF-Ln-nCc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

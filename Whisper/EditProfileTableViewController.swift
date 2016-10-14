@@ -106,7 +106,7 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
                 self.usernameTextField.text = user.username
                 self.biographyTextField.text = user.biography
                 self.countryTextField.text = user.country
-                FIRStorage.storage().reference(forURL: user.photoURL).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
+                FIRStorage.storage().reference(forURL: user.photoURL!).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
                     if let error = error {
                         let alertView = SCLAlertView()
                         alertView.showError("AAOOPS", subTitle: error.localizedDescription)
@@ -141,7 +141,7 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
             let alertView = SCLAlertView()
             alertView.showError("OOPS", subTitle: "It seems like you did not fill correctly the information.")
         } else {
-            let imagePath = "profileImage\(user.uid)/userPic.jpg"
+            let imagePath = "profileImage\(user.uid!)/userPic.jpg"
             
             let imageRef = storageRef.child(imagePath)
             
@@ -150,6 +150,17 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
             
             imageRef.put(imageData, metadata: metadata) { (metadata, error) in
                 if error == nil {
+                    
+                    FIRAuth.auth()!.currentUser?.updateEmail(finalEmail, completion: { (error) in
+                        if error == nil {
+                            print("Email updated successfully!")
+                        } else {
+                            let alertView = SCLAlertView()
+                            alertView.showError("😁OOPS😁", subTitle: error!.localizedDescription)
+                        }
+                    })
+                    
+                    
                     
                     let changeRequest = FIRAuth.auth()!.currentUser!.profileChangeRequest()
                     changeRequest.displayName = username
@@ -290,6 +301,7 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
             self.choosePictureAction()
             print("Select Picture")
         }
+        //tableView.deselectRow(at: indexPath, animated: false)
     }
     
 

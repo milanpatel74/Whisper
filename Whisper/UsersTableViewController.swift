@@ -96,7 +96,7 @@ class UsersTableViewController: UITableViewController {
         
         cell.usernameLabel.text = userArray[indexPath.row].username
         cell.userCountryLabel.text = userArray[indexPath.row].country!
-        storageRef.reference(forURL: userArray[indexPath.row].photoURL).data(withMaxSize: 256*1024, completion: { (imgData, error) in
+        storageRef.reference(forURL: userArray[indexPath.row].photoURL!).data(withMaxSize: 256*1024, completion: { (imgData, error) in
             if let error = error {
                 let alertView = SCLAlertView()
                 alertView.showError("OOPS", subTitle: error.localizedDescription)
