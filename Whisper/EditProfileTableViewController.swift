@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import KRProgressHUD
 
 class EditProfileTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -106,16 +107,18 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
                 self.usernameTextField.text = user.username
                 self.biographyTextField.text = user.biography
                 self.countryTextField.text = user.country
-                FIRStorage.storage().reference(forURL: user.photoURL!).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
-                    if let error = error {
-                        let alertView = SCLAlertView()
-                        alertView.showError("AAOOPS", subTitle: error.localizedDescription)
-                    } else {
-                        if let data = imgData {
-                            self.userImageView.image = UIImage(data: data)
-                        }
-                    }
-                })
+                
+                // 不再显示照片了
+//                FIRStorage.storage().reference(forURL: user.photoURL!).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
+//                    if let error = error {
+//                        let alertView = SCLAlertView()
+//                        alertView.showError("AAOOPS", subTitle: error.localizedDescription)
+//                    } else {
+//                        if let data = imgData {
+//                            self.userImageView.image = UIImage(data: data)
+//                        }
+//                    }
+//                })
             }
         }) { (error) in
             let alertView = SCLAlertView()
@@ -126,6 +129,8 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
     
     
     @IBAction func updateAction(_ sender: AnyObject) {
+        
+        KRProgressHUD.show()
         
         let email = emailTextField.text!.lowercased()
         // Remove the space in the email field.
@@ -180,6 +185,7 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
                             userRef.setValue(userInfo, withCompletionBlock: { (error, ref) in
                                 if error == nil {
                                     self.navigationController!.popToRootViewController(animated: true)
+                                    KRProgressHUD.dismiss()
                                 } else {
                                     let alertView =  SCLAlertView()
                                     alertView.showError("Update Error", subTitle: error!.localizedDescription)

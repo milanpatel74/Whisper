@@ -21,6 +21,11 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
+    
+    var storageRef: FIRStorageReference! {
+        return FIRStorage.storage().reference()
+    }
+    
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
@@ -74,8 +79,36 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let senderId = snap["senderId"] as! String
             let text = snap["text"] as! String
             let displayName = snap["username"] as! String
-            self.addMessage(text: text, senderId: senderId, displayName: displayName)
-            self.finishSendingMessage()
+            let mediaType = snap["mediaType"] as! String
+            let mediaUrl = snap["mediaUrl"] as! String
+            //self.addMessage(text: text, senderId: senderId, displayName: displayName)
+            
+            
+            switch mediaType {
+            case "TEXT":
+                let message = JSQMessage(senderId: senderId, displayName: displayName, text: text)
+                self.messages.append(message!)
+            case "PHOTO":
+                //NSData(contentsOf: URL(string: mediaUrl)!)!
+                do {
+                    let imgData = try Data(contentsOf: URL(string: mediaUrl)!)
+                    let picture = UIImage(data: imgData)
+                    let photo = JSQPhotoMediaItem(image: picture)
+                    self.messages.append(JSQMessage(senderId: senderId, displayName: displayName, media: photo))
+                } catch {
+                    print(error)
+                }
+            case "VIDEO":
+                if let url = URL(string: mediaUrl) {
+                    let video = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
+                    self.messages.append(JSQMessage(senderId: senderId, displayName: displayName, media: video))
+                }
+            default:
+                break
+            } // switch ends.
+            
+            self.finishReceivingMessage()
+            
             
         }) { (error) in
             //let alertView = SCLAlertView()
@@ -109,15 +142,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     
-    private func addMessage(text: String, senderId: String, displayName: String) {
-        let message = JSQMessage(senderId: senderId, displayName: displayName, text: text)
-        messages.append(message!)
-    }
+//    private func addMessage(text: String, senderId: String, displayName: String) {
+//        let message = JSQMessage(senderId: senderId, displayName: displayName, text: text)
+//        messages.append(message!)
+//    }
     
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let messageRef = databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").childByAutoId()
-        let message = Message(text: text, senderId: senderId, username: senderDisplayName)
+        let message = Message(text: text, senderId: senderId, username: senderDisplayName, mediaType: "TEXT", mediaUrl: "")
         messageRef.setValue(message.toAnyObject()) { (error, ref) in
             if error == nil {
                 
@@ -181,13 +214,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // If the media is a picture type
         if let picture = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let photo = JSQPhotoMediaItem(image: picture)
-            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
+            //let photo = JSQPhotoMediaItem(image: picture)
+            self.saveMediaMessage(withImage: picture, withVideo: nil)
+            //messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
         }
         // If the media is a video type
         else if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL {
-            let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true)
-            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video))
+            //let video = JSQVideoMediaItem(fileURL: videoUrl, isReadyToPlay: true)
+            self.saveMediaMessage(withImage: nil, withVideo: videoUrl)
+            //messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video))
         }
         self.dismiss(animated: true) { 
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -196,8 +231,120 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
 
     }
     
+    private func saveMediaMessage(withImage image: UIImage?, withVideo: URL?) {
+        
+        // 如果发送的是照片信息
+        if let image = image {
+            
+            let imagePath = "messageWithMedia\(chatRoomId! + NSUUID().uuidString)/photo.jpg"
+            let imageRef = storageRef.child(imagePath)
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            let imageData = UIImageJPEGRepresentation(image, 0.8)!
+            imageRef.put(imageData, metadata: metadata, completion: { (newMetaData, error) in
+                if error == nil {
+                    let message = Message(text: "", senderId: self.senderId, username: self.senderDisplayName, mediaType: "PHOTO", mediaUrl: "\(newMetaData!.downloadURL()!)")
+                    let messageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("Messages").childByAutoId()
+                    messageRef.setValue(message.toAnyObject(), withCompletionBlock: { (error, ref) in
+                        if error == nil {
+                            
+                            let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
+                            lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
+                                if error == nil {
+                                    // Send a notification
+                                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
+                                } else {
+                                    let alertView = SCLAlertView()
+                                    alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                                }
+                            })
+                            
+                            let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
+                            lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
+                                if error == nil {
+                                    // Nothing
+                                } else {
+                                    let alertView = SCLAlertView()
+                                    alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                                }
+                            })
+                            
+                            
+                            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                            self.finishSendingMessage()
+                            self.isTyping = false
+                        } else {
+                            let alertView = SCLAlertView()
+                            alertView.showError("Send Message Error", subTitle: error!.localizedDescription)
+                            self.isTyping = false
+                        }
+                    })
+                    
+                } else {
+                    let alertView = SCLAlertView()
+                    alertView.showError("Upload Image Error", subTitle: error!.localizedDescription)
+                }
+            })
+        }
+        // 如果发送的是视频信息
+        else {
+            let videoPath = "messageWithMedia\(chatRoomId! + NSUUID().uuidString)/video.mp4"
+            let videoRef = storageRef.child(videoPath)
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "video/mp4"
+            
+            let videoData = NSData(contentsOf: withVideo!)!
+            videoRef.put(videoData as Data, metadata: metadata, completion: { (newMetaData, error) in
+                if error == nil {
+                    let message = Message(text: "", senderId: self.senderId, username: self.senderDisplayName, mediaType: "VIDEO", mediaUrl: "\(newMetaData!.downloadURL()!)")
+                    let messageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("Messages").childByAutoId()
+                    messageRef.setValue(message.toAnyObject(), withCompletionBlock: { (error, ref) in
+                        if error == nil {
+                            
+                            let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
+                            lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
+                                if error == nil {
+                                    // Send a notification
+                                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
+                                } else {
+                                    let alertView = SCLAlertView()
+                                    alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                                }
+                            })
+                            
+                            let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
+                            lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
+                                if error == nil {
+                                    // Nothing
+                                } else {
+                                    let alertView = SCLAlertView()
+                                    alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
+                                }
+                            })
+                            
+                            
+                            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                            self.finishSendingMessage()
+                            self.isTyping = false
+                        } else {
+                            let alertView = SCLAlertView()
+                            alertView.showError("Send Message Error", subTitle: error!.localizedDescription)
+                            self.isTyping = false
+                        }
+                    })
+                    
+                } else {
+                    let alertView = SCLAlertView()
+                    alertView.showError("Upload Image Error", subTitle: error!.localizedDescription)
+                }
+            })
+        }
+        
+    }
     
-    func getMedia(mediaType: CFString) {
+    
+    private func getMedia(mediaType: CFString) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -242,10 +389,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
-        if message.senderId == senderId {
-            cell.textView.textColor = UIColor.white
-        } else {
-            cell.textView.textColor = UIColor.black
+        // 如果是文字信息
+        if !message.isMediaMessage {
+            if message.senderId == senderId {
+                cell.textView.textColor = UIColor.white
+            } else {
+                cell.textView.textColor = UIColor.black
+            }
         }
         return cell
     }
