@@ -91,9 +91,9 @@ final class ImageViewer: UIViewController {
         originalFrame.size = senderView.frame.size
         
         originalFrameRelativeToScreen = originalFrame
-        
         UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
     }
+    
     
     fileprivate func configureImageView() {
         senderView.alpha = 0.0

@@ -11,6 +11,7 @@
 		BC097D8F1DAEE94C00BC8DCC /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */; };
 		BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */; };
 		BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */; };
+		BC1FB8FF1DB1C7AA009A9681 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */; };
 		BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */; };
 		BC2BEA651DADEBE8004315D6 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA621DADEBE8004315D6 /* ResetPasswordViewController.swift */; };
 		BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA631DADEBE8004315D6 /* SignupViewController.swift */; };
@@ -49,6 +50,7 @@
 		BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC2BEA621DADEBE8004315D6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		BC2BEA631DADEBE8004315D6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
+				BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */,
 			);
 			name = "Camera Controllers";
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */,
 				BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */,
 				BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */,
+				BC1FB8FF1DB1C7AA009A9681 /* ImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
