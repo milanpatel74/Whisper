@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import imglyKit
 
-class ImageViewController: UIViewController {
+class ImageViewController: UIViewController, ToolStackControllerDelegate {
 
     var image: UIImage?
     @IBOutlet var imageView: UIImageView!
@@ -19,11 +20,42 @@ class ImageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.isHidden = false
-        
+
+        // Set the appearance of editor.
+        if let window = UIApplication.shared.delegate?.window! {
+            window.tintColor = UIColor.white
+        }
+
         if let validImage = self.image {
             self.imageView.image = validImage
         }
     }
+    
+    @IBAction func editImageTapped(_ sender: UIButton) {
+        if let editedImage = image {
+            let photoEditViewController = PhotoEditViewController(photo: editedImage)
+            let toolStackController = ToolStackController(photoEditViewController: photoEditViewController)
+            toolStackController.delegate = self
+            present(toolStackController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func toolStackController(_ toolStackController: ToolStackController, didFinishWith image: UIImage) {
+        imageView.image = image
+        self.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func toolStackControllerDidFail(_ toolStackController: ToolStackController) {
+        print("fail")
+    }
+    
+    func toolStackControllerDidCancel(_ toolStackController: ToolStackController) {
+        print("Cancel")
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

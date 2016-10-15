@@ -1,0 +1,1 @@
+../../../../imglyKit/imglyKit.framework/Headers/IMGLYPhotoEditMutableModel.h

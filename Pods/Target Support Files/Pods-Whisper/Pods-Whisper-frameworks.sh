@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Whisper/JSQMessagesViewController.framework"
   install_framework "Pods-Whisper/JSQSystemSoundPlayer.framework"
   install_framework "Pods-Whisper/KRProgressHUD.framework"
+  install_framework "${PODS_ROOT}/imglyKit/imglyKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Whisper/CameraManager.framework"
   install_framework "Pods-Whisper/JSQMessagesViewController.framework"
   install_framework "Pods-Whisper/JSQSystemSoundPlayer.framework"
   install_framework "Pods-Whisper/KRProgressHUD.framework"
+  install_framework "${PODS_ROOT}/imglyKit/imglyKit.framework"
 fi

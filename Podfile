@@ -10,5 +10,6 @@ target 'Whisper' do
   pod 'KRProgressHUD'
   pod 'JSQMessagesViewController'
   pod 'CameraManager', '~> 3.0'
+  pod 'imglyKit', '~> 5.0'
 end
 

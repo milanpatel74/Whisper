@@ -10,6 +10,7 @@
 		84F6982BDC6099AACE779DED /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E50663729975CC9C1752FB /* Pods_Whisper.framework */; };
 		BC097D8F1DAEE94C00BC8DCC /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */; };
 		BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */; };
+		BC0F7AAC1DB1F06400897B77 /* QRCodeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */; };
 		BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */; };
 		BC1FB8FF1DB1C7AA009A9681 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */; };
 		BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */; };
@@ -49,6 +50,7 @@
 		921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
 		BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeTool.swift; sourceTree = "<group>"; };
 		BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		BC2BEA611DADEBE8004315D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		BC9521691DAF2B38007BE919 /* Profile Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */,
 				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
 				BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */,
 				BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */,
@@ -385,6 +388,7 @@
 				BC9521681DAF2063007BE919 /* ChatViewController.swift in Sources */,
 				BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */,
 				BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */,
+				BC0F7AAC1DB1F06400897B77 /* QRCodeTool.swift in Sources */,
 				BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */,
 				BC99DA871DB115C6002A816C /* ImageViewer.swift in Sources */,
 				BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */,

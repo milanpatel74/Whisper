@@ -54,9 +54,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-9I-9kw">
-                                <frame key="frameInset" minX="150" minY="474" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-9I-9kw">
                                 <state key="normal" title="Friends list"/>
                                 <connections>
                                     <segue destination="8pX-Bt-a68" kind="show" id="vJy-re-GfQ"/>
@@ -68,9 +66,11 @@
                             <constraint firstItem="pGa-40-ZFO" firstAttribute="top" secondItem="EGS-mp-aEc" secondAttribute="bottom" constant="8" id="8UJ-rq-aug"/>
                             <constraint firstItem="D0t-xG-a1f" firstAttribute="top" secondItem="nzr-HO-BpA" secondAttribute="bottom" constant="437" id="9jI-kH-c5N"/>
                             <constraint firstItem="tuy-sp-tRf" firstAttribute="top" secondItem="pGa-40-ZFO" secondAttribute="bottom" constant="8" id="ErJ-W0-HMh"/>
+                            <constraint firstItem="D0t-xG-a1f" firstAttribute="top" secondItem="VOw-9I-9kw" secondAttribute="bottom" constant="99" id="Nap-co-KvU"/>
                             <constraint firstItem="3jz-Cj-yzP" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="Nsl-HR-4By"/>
                             <constraint firstItem="pGa-40-ZFO" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="Sar-mu-TxF"/>
                             <constraint firstItem="EGS-mp-aEc" firstAttribute="top" secondItem="nzr-HO-BpA" secondAttribute="bottom" constant="25" id="XWO-He-eMk"/>
+                            <constraint firstItem="VOw-9I-9kw" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="fh2-0o-zql"/>
                             <constraint firstItem="tuy-sp-tRf" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="kzd-cJ-6Qg"/>
                             <constraint firstItem="EGS-mp-aEc" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="lfC-an-S5p"/>
                             <constraint firstItem="nzr-HO-BpA" firstAttribute="centerX" secondItem="qMm-ov-MqX" secondAttribute="centerX" id="qhx-4Z-0ae"/>
@@ -500,7 +500,7 @@
         <scene sceneID="Uak-sY-wyB">
             <objects>
                 <navigationController storyboardIdentifier="left" id="P58-lW-Kxp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUD-3b-iXy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kUD-3b-iXy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -552,16 +552,15 @@
                                             <action selector="askForCameraPermissions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pmr-od-B4X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-aL-x2C" userLabel="Capture Button">
-                                        <frame key="frameInset" minX="150" minY="527" width="75" height="75"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-9w-Qiy" userLabel="Camera Mode">
+                                        <frame key="frameInset" minX="172" minY="487" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="capture-video-off"/>
                                         <connections>
-                                            <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Umh-Pw-iEZ"/>
+                                            <action selector="outputModeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LvB-VX-gQ2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLo-ee-5xD" userLabel="Flash Mode">
-                                        <frame key="frameInset" minX="33" minY="62" width="30" height="30"/>
+                                        <frame key="frameInset" minX="23" minY="32" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="flash-off"/>
                                         <connections>
@@ -569,18 +568,39 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdL-XH-sJ7" userLabel="Rotate Camera">
-                                        <frame key="frameInset" minX="312" minY="62" width="30" height="30"/>
+                                        <frame key="frameInset" minX="322" minY="32" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="camera-end"/>
                                         <connections>
                                             <action selector="changeCameraDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R1q-lp-V2Z"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-9w-Qiy" userLabel="Camera Mode">
-                                        <frame key="frameInset" minX="172" minY="479" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-c0-WdS" userLabel="Button-Profile">
+                                        <frame key="frameInset" minX="172" minY="31" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button-profile"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQl-8F-YBe" userLabel="Button-Memory">
+                                        <frame key="frameInset" minX="172" minY="624" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button-memory"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-mg-W62" userLabel="Button-Story">
+                                        <frame key="frameInset" minX="327" minY="619" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button-story"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoU-Dz-Zq6" userLabel="Button-Chat">
+                                        <frame key="frameInset" minX="13" minY="619" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button-chat"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-aL-x2C" userLabel="Capture Button">
+                                        <frame key="frameInset" minX="150" minY="533" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="capture-video-off"/>
                                         <connections>
-                                            <action selector="outputModeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LvB-VX-gQ2"/>
+                                            <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Umh-Pw-iEZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -614,12 +634,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dk-RF-Hnh">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3dk-RF-Hnh"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmx-Ic-s9D">
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="EaY-5W-Jhf"/>
+                                    <constraint firstAttribute="height" constant="30" id="x08-5Y-USr"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editImageTapped:" destination="z0Y-4o-sZT" eventType="touchUpInside" id="jW1-9R-TEl"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lmx-Ic-s9D" firstAttribute="leading" secondItem="3dk-RF-Hnh" secondAttribute="trailing" constant="-76" id="2Lz-fh-gUn"/>
+                            <constraint firstItem="3dk-RF-Hnh" firstAttribute="bottom" secondItem="Yw9-jI-nD4" secondAttribute="top" id="80V-kq-rJ4"/>
+                            <constraint firstItem="3dk-RF-Hnh" firstAttribute="top" secondItem="CoJ-iA-BNP" secondAttribute="top" id="c11-h4-eOt"/>
+                            <constraint firstAttribute="trailing" secondItem="3dk-RF-Hnh" secondAttribute="trailing" id="feJ-cO-3Y5"/>
+                            <constraint firstItem="Lmx-Ic-s9D" firstAttribute="top" secondItem="3dk-RF-Hnh" secondAttribute="bottom" constant="-65" id="oh9-iw-S1d"/>
+                            <constraint firstItem="3dk-RF-Hnh" firstAttribute="leading" secondItem="CoJ-iA-BNP" secondAttribute="leading" id="tOa-ZP-Q5s"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="3dk-RF-Hnh" id="rb4-wn-G6N"/>
@@ -662,7 +699,7 @@
         <scene sceneID="wqk-gc-wTh">
             <objects>
                 <navigationController storyboardIdentifier="right" id="5va-qz-pJe" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="seb-Fx-jbu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="seb-Fx-jbu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1171,7 +1208,7 @@
             <objects>
                 <navigationController storyboardIdentifier="top" automaticallyAdjustsScrollViewInsets="NO" id="dMJ-da-Iql" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KFF-Ln-nCc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="KFF-Ln-nCc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1210,6 +1247,10 @@
     </scenes>
     <resources>
         <image name="background-1" width="375" height="666"/>
+        <image name="button-chat" width="35" height="35"/>
+        <image name="button-memory" width="30" height="30"/>
+        <image name="button-profile" width="30" height="30"/>
+        <image name="button-story" width="35" height="35"/>
         <image name="camera-end" width="30" height="30"/>
         <image name="capture-video-off" width="75" height="75"/>
         <image name="flash-off" width="30" height="26"/>
