@@ -6,8 +6,6 @@
 //  Copyright © 2016年 unimelb. All rights reserved.
 //
 
-// 待修复的BUG：并不能判断Media消息来自于哪边，都默认当作发出的消息
-
 import UIKit
 import Firebase
 import JSQMessagesViewController
@@ -43,7 +41,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Observe the typing user and show the indicator if the other user is typing.
         observeTypingUser()
         

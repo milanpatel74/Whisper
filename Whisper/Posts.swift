@@ -28,6 +28,7 @@ struct Post {
         self.timestamp = snap["timestamp"] as! NSNumber
         self.imageUrl = snap["imageUrl"] as! String
         self.timeout = snap["timeout"] as! NSNumber
+        self.isPrivate = snap["isPrivate"] as! Bool
     }
     
     init(key: String = "", senderId: String, username: String, timastamp: NSNumber, imageUrl: String, isPrivate: Bool, timeout: NSNumber) {

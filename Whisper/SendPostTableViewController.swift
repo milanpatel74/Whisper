@@ -86,7 +86,7 @@ class SendPostTableViewController: UITableViewController {
         // 将图片数据存放进storage并且返回URL，把URL存Realtime database.
         imageRef.put(imageData, metadata: metadata, completion: { (newMetaData, error) in
             if error == nil {
-                let post = Post(senderId: userId, username: username, timastamp: NSNumber(value: Int(Date().timeIntervalSince1970*1000)), imageUrl: "\(newMetaData!.downloadURL()!)", isPrivate: isPrivate, timeout: self.passedTimeout)
+                let post = Post(senderId: userId, username: username, timastamp: NSNumber(value: Int(Date().timeIntervalSince1970)), imageUrl: "\(newMetaData!.downloadURL()!)", isPrivate: isPrivate, timeout: self.passedTimeout)
                 let postRef = self.databaseRef.child("Posts").child(userId).childByAutoId()
                 
                 postRef.setValue(post.toAnyObject(), withCompletionBlock: { (error, ref) in

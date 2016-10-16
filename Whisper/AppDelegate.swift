@@ -20,12 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         // If the user has signed in, and haven't signed out, then move to the main view directlly.
         logUser()
-        //self.window?.rootViewController = snapContainer
-//        let initVC = storyboard.instantiateViewController(withIdentifier: "init")
-//        self.window?.rootViewController = initVC
-//        self.window?.makeKeyAndVisible()
-        
-        
         
         return true
     }
@@ -36,25 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(FIRAuth.auth()!.currentUser?.uid)
             
             // Define the snapchat scroll view.
-            let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // The left ViewController is the chat view.
-            let left1 = storyboard1.instantiateViewController(withIdentifier: "left")
+            let left = storyboard.instantiateViewController(withIdentifier: "left")
             // The middle ViewController is the camera view.
-            let middle1 = storyboard1.instantiateViewController(withIdentifier: "middle")
+            let middle = storyboard.instantiateViewController(withIdentifier: "middle")
             // The right ViewController is the story view.
-            let right1 = storyboard1.instantiateViewController(withIdentifier: "right")
+            let right = storyboard.instantiateViewController(withIdentifier: "right")
             // The top ViewController is the profile view.
-            let top1 = storyboard1.instantiateViewController(withIdentifier: "top")
+            let top = storyboard.instantiateViewController(withIdentifier: "top")
             // The bottom ViewController is the memory view.
-            let bottom1 = storyboard1.instantiateViewController(withIdentifier: "bottom")
+            let bottom = storyboard.instantiateViewController(withIdentifier: "bottom")
             // Add all VCs to a snap container.
-            let snapContainer1 = SnapContainerViewController.containerViewWith(left1,
-                                                                              middleVC: middle1,
-                                                                              rightVC: right1,
-                                                                              topVC: top1,
-                                                                              bottomVC: bottom1)
-            self.window?.rootViewController = snapContainer1
+            let snapContainer = SnapContainerViewController.containerViewWith(left,
+                                                                              middleVC: middle,
+                                                                              rightVC: right,
+                                                                              topVC: top,
+                                                                              bottomVC: bottom)
+            
+            self.window?.rootViewController = snapContainer
+            self.window?.rootViewController?.automaticallyAdjustsScrollViewInsets = false
+            //self.automaticallyAdjustsScrollViewInsets = false
             self.window?.makeKeyAndVisible()
+            
         }
         
         

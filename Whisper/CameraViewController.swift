@@ -30,6 +30,7 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
         //captureMode.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         
         cameraManager.showAccessPermissionPopupAutomatically = false

@@ -116,6 +116,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         middleVertScrollVc.didMove(toParentViewController: self)
         rightVc.didMove(toParentViewController: self)
         
+        
         scrollView.contentOffset.x = middleVertScrollVc.view.frame.origin.x
         scrollView.delegate = self
     }
