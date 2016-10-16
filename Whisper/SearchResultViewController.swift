@@ -63,13 +63,21 @@ class SearchResultViewController: UIViewController {
             if self.friendList[user.uid] != nil {
                 self.addButton.backgroundColor = whisper_red
                 self.addButton.isEnabled = false
-                let alertView = SCLAlertView()
-                alertView.showWarning("Warning", subTitle: "You are already friend with \(user.username!).")
+                DispatchQueue.main.async {
+                    let alertView = SCLAlertView()
+                    alertView.showWarning("Warning", subTitle: "You are already friend with \(user.username!).")
+                }
+                
+
+                
             } else if self.searchedUser.uid == FIRAuth.auth()!.currentUser!.uid {
+                
                 self.addButton.backgroundColor = whisper_red
                 self.addButton.isEnabled = false
-                let alertView = SCLAlertView()
-                alertView.showWarning("Warning", subTitle: "You can't add yourself.")
+                DispatchQueue.main.async {
+                    let alertView = SCLAlertView()
+                    alertView.showWarning("Warning", subTitle: "You are already friend with \(user.username!).")
+                }
 
             }
             
@@ -82,7 +90,10 @@ class SearchResultViewController: UIViewController {
     @IBAction func AddFriendTapped(_ sender: AnyObject) {
         if let user = searchedUser {
             let friendshipRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
+            
             friendshipRef.child(user.uid).setValue(true)
+            let alertView = SCLAlertView()
+            alertView.showSuccess("Success", subTitle: "\(user.username!) is your friend now")
             self.navigationController!.popToRootViewController(animated: true)
         }
     }

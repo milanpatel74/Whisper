@@ -24,6 +24,7 @@
 		BC2BEA731DAE4267004315D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BEA721DAE4267004315D6 /* User.swift */; };
 		BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3444E91DACB68A00782EAC /* SCLAlertView.swift */; };
 		BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */; };
+		BC7097C11DB3531A002250F3 /* SendPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7097C01DB3531A002250F3 /* SendPostTableViewController.swift */; };
 		BC74F2691DA0C8840095343E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F2681DA0C8840095343E /* AppDelegate.swift */; };
 		BC74F2701DA0C8840095343E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC74F26F1DA0C8840095343E /* Assets.xcassets */; };
 		BC74F2731DA0C8840095343E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC74F2711DA0C8840095343E /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */; };
 		BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81FFCE1DA64E0400CDC54F /* Constants.swift */; };
 		BC8925D21DB31EEF0009386D /* InputEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */; };
+		BC8925D41DB34B850009386D /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8925D31DB34B850009386D /* Posts.swift */; };
 		BC9521611DAF03C3007BE919 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521601DAF03C3007BE919 /* Message.swift */; };
 		BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521621DAF05F5007BE919 /* ChatRoom.swift */; };
 		BC9521651DAF098A007BE919 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521641DAF098A007BE919 /* ChatFunctions.swift */; };
@@ -67,6 +69,7 @@
 		BC2BEA721DAE4267004315D6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC3444E91DACB68A00782EAC /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		BC3444EA1DACB68A00782EAC /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
+		BC7097C01DB3531A002250F3 /* SendPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPostTableViewController.swift; sourceTree = "<group>"; };
 		BC74F2651DA0C8840095343E /* Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whisper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC74F2681DA0C8840095343E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC74F26F1DA0C8840095343E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		BC81FFCE1DA64E0400CDC54F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputEmailViewController.swift; sourceTree = "<group>"; };
+		BC8925D31DB34B850009386D /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		BC9521601DAF03C3007BE919 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BC9521621DAF05F5007BE919 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		BC9521641DAF098A007BE919 /* ChatFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			children = (
 				BC147E8A1DA0DF2600D03E7C /* CameraViewController.swift */,
 				BC1FB8FE1DB1C7AA009A9681 /* ImageViewController.swift */,
+				BC7097C01DB3531A002250F3 /* SendPostTableViewController.swift */,
 			);
 			name = "Camera Controllers";
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				BC9521601DAF03C3007BE919 /* Message.swift */,
 				BC9521621DAF05F5007BE919 /* ChatRoom.swift */,
 				BC9521641DAF098A007BE919 /* ChatFunctions.swift */,
+				BC8925D31DB34B850009386D /* Posts.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -417,6 +423,8 @@
 				BC2BEA6F1DADF718004315D6 /* CustomizableTextField.swift in Sources */,
 				BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */,
 				BC99DA601DB05319002A816C /* SettingsTableViewController.swift in Sources */,
+				BC8925D41DB34B850009386D /* Posts.swift in Sources */,
+				BC7097C11DB3531A002250F3 /* SendPostTableViewController.swift in Sources */,
 				BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */,
 				BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */,
 				BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */,

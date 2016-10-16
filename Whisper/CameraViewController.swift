@@ -100,7 +100,7 @@ class CameraViewController: UIViewController {
                     if let validVC: ImageViewController = vc {
                         if let capturedImage = image {
                             validVC.image = capturedImage
-                            self.navigationController?.pushViewController(validVC, animated: true)
+                            self.present(validVC, animated: true, completion: nil)
                         }
                     }
                 }
@@ -167,7 +167,8 @@ class CameraViewController: UIViewController {
         
     }
     
-    
+    @IBAction func close(segue:UIStoryboardSegue) {
+    }
 
     /*
     // MARK: - Navigation

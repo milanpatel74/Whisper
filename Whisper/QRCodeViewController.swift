@@ -18,7 +18,7 @@ class QRCodeViewController: UIViewController {
     @IBOutlet var searchButton: UIButton!
     
     let scanner = QRCode()
-    let uid = FIRAuth.auth()!.currentUser!.uid
+    let uemail = FIRAuth.auth()!.currentUser!.email
     let photoUrl = FIRAuth.auth()!.currentUser!.photoURL
     
     var searchedUser: User!
@@ -47,7 +47,7 @@ class QRCodeViewController: UIViewController {
         do {
             let imgData = try Data(contentsOf: photoUrl!)
             let avatar = UIImage(data: imgData)
-            codeView.image = QRCode.generateImage(uid, avatarImage: avatar)
+            codeView.image = QRCode.generateImage(uemail!, avatarImage: avatar)
         } catch {
             print(error)
         }
