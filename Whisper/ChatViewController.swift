@@ -17,22 +17,19 @@ import AVKit
 
 class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // Firebase references.
+    var storageRef: FIRStorageReference! { return FIRStorage.storage().reference() }
+    var databaseRef: FIRDatabaseReference! { return FIRDatabase.database().reference() }
+    var userIsTypingRef: FIRDatabaseReference!
+    
     var chatRoomId: String!
+    
+    // Store all messages of a chat in an array.
     var messages = [JSQMessage]()
     
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
-    
-    
-    var storageRef: FIRStorageReference! {
-        return FIRStorage.storage().reference()
-    }
-    
-    var databaseRef: FIRDatabaseReference! {
-        return FIRDatabase.database().reference()
-    }
-    
-    var userIsTypingRef: FIRDatabaseReference!
+
     private var localTyping = false
     var isTyping: Bool {
         get {
@@ -44,15 +41,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         // Observe the typing user and show the indicator if the other user is typing.
         observeTypingUser()
         
         self.title = "MESSAGES"
+        
         let factory = JSQMessagesBubbleImageFactory()!
         incomingBubbleImageView = factory.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
@@ -60,23 +56,38 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        // 更改聊天桌面
+        // Change the background wallpaper of this chatroom.
         collectionView.backgroundView = UIImageView.init(image: UIImage(named: "wallpaper-2"))
         
-        fetchMessges()
+        // fetch all messages from the firebase realtime database.
+        
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        // 当聊天页面被打开时，抓取数据。
+        fetchMessges()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        // 当聊天页面关闭的时候，删掉所有的Observer，以免消息在没有看的情况下被删除。
+        databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").removeAllObservers()
+    }
+    
+    // 获取信息（当获取信息的时候，将对方的信息置为已读）
     func fetchMessges() {
         
         //messages.removeAll(keepingCapacity: false)
         let messageQuery = databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").queryLimited(toLast: 30)
         messageQuery.observe(.childAdded, with: { (snapshot) in
+            
+            //print("----------------------------------------------------------------------")
+            //print("Message:")
+            //print(snapshot.key)
+            //print(snapshot)
+            //print("----------------------------------------------------------------------")
+            
             let snap = snapshot.value! as! [String: AnyObject]
             let senderId = snap["senderId"] as! String
             let text = snap["text"] as! String
@@ -84,6 +95,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let mediaType = snap["mediaType"] as! String
             let mediaUrl = snap["mediaUrl"] as! String
             //self.addMessage(text: text, senderId: senderId, displayName: displayName)
+            
             
             
             switch mediaType {
@@ -111,6 +123,12 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             
             self.finishReceivingMessage()
             
+            // 如果读的是对方的信息，阅后即焚
+            if senderId != self.senderId {
+                let messageKey = snapshot.key
+                let deleteRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("Messages").child(messageKey)
+                deleteRef.removeValue()
+            }
             
         }) { (error) in
             //let alertView = SCLAlertView()
@@ -119,6 +137,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
     }
     
+    // Observe if the current user is typing.
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
         isTyping = (textView.text != "")
@@ -129,7 +148,6 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         userIsTypingRef = typingRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
         
-        
         let useristypingQuery = typingRef.queryOrderedByValue().queryEqual(toValue: true)
         useristypingQuery.observe(.value, with: { (snapshot) in
             if snapshot.childrenCount == 1 && self.isTyping {
@@ -138,25 +156,23 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.showTypingIndicator = snapshot.childrenCount > 0
             self.scrollToBottom(animated: true)
         }) { (error) in
+            print("Typing Indicator: \(error.localizedDescription)")
             // let alertView = SCLAlertView()
             // alertView.showError("Typing Indicator", subTitle: error.localizedDescription)
         }
     }
     
-    
-//    private func addMessage(text: String, senderId: String, displayName: String) {
-//        let message = JSQMessage(senderId: senderId, displayName: displayName, text: text)
-//        messages.append(message!)
-//    }
-    
-    
+    // When the user presses the send button, send a text message.
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        // Create a database reference for each message.
         let messageRef = databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").childByAutoId()
         let message = Message(text: text, senderId: senderId, username: senderDisplayName, mediaType: "TEXT", mediaUrl: "")
+        // Put the message into realtime database.
         messageRef.setValue(message.toAnyObject()) { (error, ref) in
             if error == nil {
-                
                 let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
+                // Update the last message.
                 lastMessageRef.setValue(text, withCompletionBlock: { (error, ref) in
                     if error == nil {
                         // Send a notification
@@ -166,7 +182,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                         alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                     }
                 })
-                
+                // Update the last message time.
                 let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
                 lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
                     if error == nil {
@@ -176,8 +192,6 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                         alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                     }
                 })
-                
-                
                 JSQSystemSoundPlayer.jsq_playMessageSentSound()
                 self.finishSendingMessage()
                 self.isTyping = false
@@ -186,9 +200,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 alertView.showError("Send Message Error", subTitle: error!.localizedDescription)
                 self.isTyping = false
             }
-        }
+        } // Put message ends.
     }
     
+    // If the use taps the accessory button, then get the media data and send it.
     override func didPressAccessoryButton(_ sender: UIButton!) {
         let alertController = UIAlertController(title: "Medias", message: "Choose your media type", preferredStyle: UIAlertControllerStyle.actionSheet)
         
@@ -227,14 +242,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             //messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video))
         }
         self.dismiss(animated: true) { 
-            JSQSystemSoundPlayer.jsq_playMessageSentSound()
+            // JSQSystemSoundPlayer.jsq_playMessageSentSound()
             self.finishSendingMessage()
         }
 
     }
     
+    // This function put the media message into database.
     private func saveMediaMessage(withImage image: UIImage?, withVideo: URL?) {
-        
         // 如果发送的是照片信息
         if let image = image {
             
@@ -244,13 +259,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             metadata.contentType = "image/jpeg"
             
             let imageData = UIImageJPEGRepresentation(image, 0.8)!
+            // 将图片数据存放进storage并且返回URL，把URL存Realtime database.
             imageRef.put(imageData, metadata: metadata, completion: { (newMetaData, error) in
                 if error == nil {
                     let message = Message(text: "", senderId: self.senderId, username: self.senderDisplayName, mediaType: "PHOTO", mediaUrl: "\(newMetaData!.downloadURL()!)")
                     let messageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("Messages").childByAutoId()
+                    // 将media message存入数据库
                     messageRef.setValue(message.toAnyObject(), withCompletionBlock: { (error, ref) in
                         if error == nil {
-                            
+                            // 更新last message
                             let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
                             lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
                                 if error == nil {
@@ -261,7 +278,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                     alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                                 }
                             })
-                            
+                            // 更新last time
                             let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
                             lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
                                 if error == nil {
@@ -272,7 +289,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                 }
                             })
                             
-                            
+                            // 消息发送完毕，播放声音
                             JSQSystemSoundPlayer.jsq_playMessageSentSound()
                             self.finishSendingMessage()
                             self.isTyping = false
@@ -297,13 +314,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             metadata.contentType = "video/mp4"
             
             let videoData = NSData(contentsOf: withVideo!)!
+            // 将视频数据存放进storage并且返回URL，把URL存Realtime database.
             videoRef.put(videoData as Data, metadata: metadata, completion: { (newMetaData, error) in
                 if error == nil {
                     let message = Message(text: "", senderId: self.senderId, username: self.senderDisplayName, mediaType: "VIDEO", mediaUrl: "\(newMetaData!.downloadURL()!)")
                     let messageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("Messages").childByAutoId()
+                    // 将media message存入数据库
                     messageRef.setValue(message.toAnyObject(), withCompletionBlock: { (error, ref) in
                         if error == nil {
-                            
+                            // 更新last message
                             let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
                             lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
                                 if error == nil {
@@ -314,7 +333,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                     alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                                 }
                             })
-                            
+                            // 更新last time
                             let lastTimeRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("date")
                             lastTimeRef.setValue(NSDate().timeIntervalSince1970, withCompletionBlock: { (error, ref) in
                                 if error == nil {
@@ -324,8 +343,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                     alertView.showError("Last Message Error", subTitle: error!.localizedDescription)
                                 }
                             })
-                            
-                            
+                            // 消息发送完毕，播放声音
                             JSQSystemSoundPlayer.jsq_playMessageSentSound()
                             self.finishSendingMessage()
                             self.isTyping = false
@@ -369,6 +387,11 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     // 确定聊天窗口中头像信息
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        if messages[indexPath.item].senderId == senderId {
+            // 显示己方头像
+        } else {
+            // 显示对方头像
+        }
         return nil
     }
     
@@ -402,6 +425,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return cell
     }
     
+    // If the user tap a media message bubble, the program should show the image or play the video.
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
         let message = messages[indexPath.item]
         if message.isMediaMessage {

@@ -13,15 +13,10 @@ class UsersTableViewController: UITableViewController {
 
     var userArray = [User]()
     var chatFunctions = ChatFunctions()
+    var friendList = [String: Bool]()
     
-    
-    var databaseRef: FIRDatabaseReference! {
-        return FIRDatabase.database().reference()
-    }
-    
-    var storageRef: FIRStorage! {
-        return FIRStorage.storage()
-    }
+    var databaseRef: FIRDatabaseReference! { return FIRDatabase.database().reference() }
+    var storageRef: FIRStorage! { return FIRStorage.storage() }
     
     
     @IBAction func closeTapped(_ sender: AnyObject) {
@@ -34,18 +29,33 @@ class UsersTableViewController: UITableViewController {
 
         //tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
-
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        fetchFriendList()
         loadUsers()
+    }
+    
+    func fetchFriendList() {
+        // 加载好友列表
+        let friendsRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
+        friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            for friend in snapshot.children {
+                print("----")
+                let snap = friend as! FIRDataSnapshot
+                self.friendList[snap.key] = true
+                //print(snap.key)
+                //print(friend)
+            }
+            
+        }) { (error) in
+                let alertView = SCLAlertView()
+                alertView.showError("OOPS", subTitle: error.localizedDescription)
+        }
     }
     
     func loadUsers() {
@@ -56,7 +66,9 @@ class UsersTableViewController: UITableViewController {
                 let newUser = User(snapshot: user as! FIRDataSnapshot)
                 
                 if newUser.uid != FIRAuth.auth()!.currentUser!.uid {
-                    allUsers.append(newUser)
+                    if self.friendList[newUser.uid] == true {
+                        allUsers.append(newUser)
+                    }
                 }
             }
             self.userArray = allUsers.sorted(by: { (user1, user2) -> Bool in

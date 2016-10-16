@@ -22,7 +22,6 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
         return FIRStorage.storage().reference()
     }
     
-    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!

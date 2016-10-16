@@ -30,6 +30,7 @@
 		BC74F27C1DA0CA640095343E /* SnapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */; };
 		BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */; };
 		BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81FFCE1DA64E0400CDC54F /* Constants.swift */; };
+		BC8925D21DB31EEF0009386D /* InputEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */; };
 		BC9521611DAF03C3007BE919 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521601DAF03C3007BE919 /* Message.swift */; };
 		BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521621DAF05F5007BE919 /* ChatRoom.swift */; };
 		BC9521651DAF098A007BE919 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9521641DAF098A007BE919 /* ChatFunctions.swift */; };
@@ -40,6 +41,8 @@
 		BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */; };
 		BC99DA871DB115C6002A816C /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA851DB115C6002A816C /* ImageViewer.swift */; };
 		BC99DA881DB115C6002A816C /* UIImageView+ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99DA861DB115C6002A816C /* UIImageView+ImageViewer.swift */; };
+		BCD5331A1DB25A0900D53E2E /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD533191DB25A0900D53E2E /* QRCodeViewController.swift */; };
+		BCD5331C1DB26B1A00D53E2E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5331B1DB26B1A00D53E2E /* SearchResultViewController.swift */; };
 		BCF40CCE1DA6135B00467FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CCC1DA6135B00467FD2 /* Main.storyboard */; };
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,7 @@
 		BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapContainerViewController.swift; sourceTree = "<group>"; };
 		BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		BC81FFCE1DA64E0400CDC54F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputEmailViewController.swift; sourceTree = "<group>"; };
 		BC9521601DAF03C3007BE919 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BC9521621DAF05F5007BE919 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		BC9521641DAF098A007BE919 /* ChatFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		BC99DA851DB115C6002A816C /* ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 		BC99DA861DB115C6002A816C /* UIImageView+ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageViewer.swift"; sourceTree = "<group>"; };
+		BCD533191DB25A0900D53E2E /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		BCD5331B1DB26B1A00D53E2E /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		BCF40CCD1DA6135B00467FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +204,7 @@
 		BC81FFD21DA6524100CDC54F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCD533181DB2596F00D53E2E /* Friends Managment Controllers */,
 				BC9521691DAF2B38007BE919 /* Profile Controllers */,
 				BC9521661DAF2044007BE919 /* Chat Controllers */,
 				BC097D8D1DAEE92800BC8DCC /* Users Controllers */,
@@ -240,12 +247,22 @@
 		BC9521691DAF2B38007BE919 /* Profile Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */,
 				BC2BEA701DAE3843004315D6 /* MyProfileViewController.swift */,
 				BC99DA5F1DB05319002A816C /* SettingsTableViewController.swift */,
 				BC99DA611DB05894002A816C /* EditProfileTableViewController.swift */,
 			);
 			name = "Profile Controllers";
+			sourceTree = "<group>";
+		};
+		BCD533181DB2596F00D53E2E /* Friends Managment Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */,
+				BCD533191DB25A0900D53E2E /* QRCodeViewController.swift */,
+				BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */,
+				BCD5331B1DB26B1A00D53E2E /* SearchResultViewController.swift */,
+			);
+			name = "Friends Managment Controllers";
 			sourceTree = "<group>";
 		};
 		D8E7922C54FB4D03D7F30116 /* Pods */ = {
@@ -393,6 +410,7 @@
 				BC99DA871DB115C6002A816C /* ImageViewer.swift in Sources */,
 				BC3444EC1DACB68A00782EAC /* SCLExtensions.swift in Sources */,
 				BC99DA881DB115C6002A816C /* UIImageView+ImageViewer.swift in Sources */,
+				BC8925D21DB31EEF0009386D /* InputEmailViewController.swift in Sources */,
 				BC2BEA731DAE4267004315D6 /* User.swift in Sources */,
 				BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */,
 				BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */,
@@ -411,7 +429,9 @@
 				BC9521651DAF098A007BE919 /* ChatFunctions.swift in Sources */,
 				BC95216E1DAF5F3B007BE919 /* ChatListTableViewCell.swift in Sources */,
 				BC9521631DAF05F5007BE919 /* ChatRoom.swift in Sources */,
+				BCD5331A1DB25A0900D53E2E /* QRCodeViewController.swift in Sources */,
 				BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */,
+				BCD5331C1DB26B1A00D53E2E /* SearchResultViewController.swift in Sources */,
 				BC1FB8FF1DB1C7AA009A9681 /* ImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

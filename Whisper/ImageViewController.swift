@@ -13,6 +13,7 @@ class ImageViewController: UIViewController, ToolStackControllerDelegate {
 
     var image: UIImage?
     @IBOutlet var imageView: UIImageView!
+    //var windowTintColor: UIColor!
     
     
     override func viewDidLoad() {
@@ -22,13 +23,21 @@ class ImageViewController: UIViewController, ToolStackControllerDelegate {
         self.navigationController?.navigationBar.isHidden = false
 
         // Set the appearance of editor.
-        if let window = UIApplication.shared.delegate?.window! {
-            window.tintColor = UIColor.white
-        }
+//        if let window = UIApplication.shared.delegate?.window! {
+//            windowTintColor = window.tintColor
+//            window.tintColor = UIColor.white
+//        }
 
         if let validImage = self.image {
             self.imageView.image = validImage
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+//        if let window = UIApplication.shared.delegate?.window! {
+//            window.tintColor = windowTintColor
+//        }
     }
     
     @IBAction func editImageTapped(_ sender: UIButton) {

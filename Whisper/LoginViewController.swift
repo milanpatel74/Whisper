@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -90,9 +91,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let alertView = SCLAlertView()
             alertView.showError("OOPS", subTitle: "It seems like you did not fill correctly the information.")
         } else {
+            KRProgressHUD.show()
             // If there is no error in the input fields, then sign in the user.
             authService.signIn(email: finalEmail, password: password)
             self.view.endEditing(true)
+            KRProgressHUD.dismiss()
         }
 
     }

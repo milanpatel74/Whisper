@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 // Define some colors that frequently used in Whisper.
 let whisper_red = UIColor.init(red: 214/255, green: 69/255, blue: 65/255, alpha: 1)
@@ -33,5 +34,6 @@ let snapContainer = SnapContainerViewController.containerViewWith(left,
                                                                   rightVC: right,
                                                                   topVC: top,
                                                                   bottomVC: bottom)
+
 
 
