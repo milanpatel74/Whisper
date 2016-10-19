@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class StoryTableViewController: UITableViewController {
+class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    var searchController:UISearchController!
 
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage()
@@ -18,62 +20,90 @@ class StoryTableViewController: UITableViewController {
     var postArray = [Post]()
     var selectedIndexPath: IndexPath!
     
+    var searchResults = [Post]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFriendPostList()
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search stories..."
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor(red: 0.0/255.0, green:
+            128.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
+        
+        fetchFriendPostList()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.databaseRef.child("Posts").removeAllObservers()
     }
 
     func fetchFriendPostList() {
         // 加载好友列表
         postArray.removeAll()
+        self.friendList.append(FIRAuth.auth()!.currentUser!.uid)
         print("Hello World\n\n\n")
         
         let friendsRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
         friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             //print(snapshot)
-            self.friendList.append(FIRAuth.auth()!.currentUser!.uid)
             for friend in snapshot.children {
                 let snap = friend as! FIRDataSnapshot
                 self.friendList.append(snap.key)
             }
-            print(self.friendList)
-            
-            // 获取单个好友的Posts
-            for friendId in self.friendList {
-                let postRef = self.databaseRef.child("Posts").child(friendId)
-                postRef.observe(.value, with: { (snapshot) in
-                    print(snapshot)
-                    for post in snapshot.children {
-                        let newPost = Post(snapshot: post as! FIRDataSnapshot)
-                        if newPost.isPrivate == false {
-                            print("Hi", newPost.senderId)
-                            self.postArray.append(newPost)
-                            print(self.postArray)
-                        }
-                    }
-                    self.postArray.sort(by: { (post1, post2) -> Bool in
-                        post1.timestamp.doubleValue > post2.timestamp.doubleValue
-                    })
-                    self.tableView.reloadData()
-                }) { (error) in
-                    let alertView = SCLAlertView()
-                    alertView.showError("OOPS", subTitle: error.localizedDescription)
-                }
-            }
-
-            
-            
-            self.tableView.reloadData()
+            self.fetchPosts(friendList: self.friendList)
+            //print(self.friendList)
+            //self.tableView.reloadData()
             
         }) { (error) in
             let alertView = SCLAlertView()
             alertView.showError("OOPS", subTitle: error.localizedDescription)
+        }
+    }
+    
+    func fetchPosts(friendList: [String]) {
+        print("\nStart fetching posts from friend list!\n")
+        self.postArray.removeAll()
+        // 获取单个好友的Posts
+        for friendId in friendList {
+            let postRef = self.databaseRef.child("Posts").child(friendId)
+            postRef.observe(.childAdded, with: { (snapshot) in
+                //print(snapshot)
+                let newPost = Post(snapshot: snapshot)
+                if newPost.isPrivate == false {
+                    print("Hi", newPost.senderId)
+                    self.postArray.append(newPost)
+                    print(self.postArray)
+                }
+                
+                self.postArray.sort(by: { (post1, post2) -> Bool in
+                    post1.timestamp.doubleValue > post2.timestamp.doubleValue
+                })
+                self.tableView.reloadData()
+            }) { (error) in
+                let alertView = SCLAlertView()
+                alertView.showError("OOPS", subTitle: error.localizedDescription)
+            }
         }
     }
     
@@ -89,7 +119,11 @@ class StoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return postArray.count
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return postArray.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,7 +133,8 @@ class StoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "storyPostCell", for: indexPath) as! StoryTableViewCell
         
-        let cellPost = postArray[indexPath.row]
+        let cellPost = (searchController.isActive) ? searchResults[indexPath.row] : postArray[indexPath.row]
+        
         cell.username.text = cellPost.username
         cell.timeoutLabel.text = "\(cellPost.timeout!)s"
         let date = Date(timeIntervalSince1970: Double(postArray[indexPath.row].timestamp))
@@ -107,7 +142,7 @@ class StoryTableViewController: UITableViewController {
         dateFormatter.dateFormat = "HH:mm a 'on' MMMM dd"
         cell.timeLabel.text = dateFormatter.string(from: date)
         
-        storageRef.reference(forURL: postArray[indexPath.row].imageUrl).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
+        storageRef.reference(forURL: cellPost.imageUrl).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
             if let error = error {
                 let alertView = SCLAlertView()
                 alertView.showError("OOPS", subTitle: error.localizedDescription)
@@ -131,13 +166,17 @@ class StoryTableViewController: UITableViewController {
         performSegue(withIdentifier: "postFromStory", sender: nil)
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -166,6 +205,27 @@ class StoryTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func goBackToCam(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func filterContent(for searchText: String) {
+        searchResults = postArray.filter({ (post) -> Bool in
+            if let name = post.username {
+                let isMatch = name.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+    
     
     // MARK: - Navigation
 
@@ -173,6 +233,7 @@ class StoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "postFromStory" {
             let selectedCell = tableView.cellForRow(at: selectedIndexPath) as! StoryTableViewCell
             let destinationVC = segue.destination as! PostViewController

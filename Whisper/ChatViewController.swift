@@ -13,6 +13,7 @@ import MobileCoreServices
 import AVKit
 
 
+
 class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // Firebase references.
@@ -41,7 +42,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         // Observe the typing user and show the indicator if the other user is typing.
         observeTypingUser()
         
@@ -171,7 +175,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             if error == nil {
                 let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
                 // Update the last message.
-                lastMessageRef.setValue(text, withCompletionBlock: { (error, ref) in
+
+                let date = Date(timeIntervalSince1970: Double(NSDate().timeIntervalSince1970))
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "'Last Message: 'MM/dd hh:mm a"
+                let dateString = dateFormatter.string(from: date)
+                
+                lastMessageRef.setValue(dateString, withCompletionBlock: { (error, ref) in
                     if error == nil {
                         // Send a notification
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
@@ -267,7 +277,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                         if error == nil {
                             // 更新last message
                             let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
-                            lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
+                            
+                            let date = Date(timeIntervalSince1970: Double(NSDate().timeIntervalSince1970))
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "'Last Message: 'MM/dd hh:mm a"
+                            let dateString = dateFormatter.string(from: date)
+                            
+                            lastMessageRef.setValue(dateString, withCompletionBlock: { (error, ref) in
                                 if error == nil {
                                     // Send a notification
                                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)
@@ -322,7 +338,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                         if error == nil {
                             // 更新last message
                             let lastMessageRef = self.databaseRef.child("ChatRooms").child(self.chatRoomId).child("lastMessage")
-                            lastMessageRef.setValue("\(newMetaData!.downloadURL()!)", withCompletionBlock: { (error, ref) in
+                            
+                            let date = Date(timeIntervalSince1970: Double(NSDate().timeIntervalSince1970))
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "'Last Message: 'MM/dd hh:mm a"
+                            let dateString = dateFormatter.string(from: date)
+                            
+                            lastMessageRef.setValue(dateString, withCompletionBlock: { (error, ref) in
                                 if error == nil {
                                     // Send a notification
                                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDiscussion"), object: nil)

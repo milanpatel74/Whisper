@@ -19,7 +19,10 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         userImageView.layer.cornerRadius = userImageView.layer.frame.width/2
 
         // Uncomment the following line to preserve selection between presentations

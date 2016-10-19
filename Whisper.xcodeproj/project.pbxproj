@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84F6982BDC6099AACE779DED /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E50663729975CC9C1752FB /* Pods_Whisper.framework */; };
+		BC05EBA11DB717010027061A /* FriendManageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC05EBA01DB717010027061A /* FriendManageTableViewController.swift */; };
 		BC097D8F1DAEE94C00BC8DCC /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */; };
 		BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */; };
 		BC0F7AAC1DB1F06400897B77 /* QRCodeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */; };
@@ -33,6 +34,11 @@
 		BC74F2731DA0C8840095343E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC74F2711DA0C8840095343E /* LaunchScreen.storyboard */; };
 		BC74F27C1DA0CA640095343E /* SnapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */; };
 		BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */; };
+		BC75ABBC1DB7A51A0057E743 /* PopTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC75ABB71DB7A51A0057E743 /* PopTransitionAnimator.swift */; };
+		BC75ABBD1DB7A51A0057E743 /* SlideDownTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC75ABB81DB7A51A0057E743 /* SlideDownTransitionAnimator.swift */; };
+		BC75ABBE1DB7A51A0057E743 /* SlideLeftTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC75ABB91DB7A51A0057E743 /* SlideLeftTransitionAnimator.swift */; };
+		BC75ABBF1DB7A51A0057E743 /* SlideRightTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC75ABBA1DB7A51A0057E743 /* SlideRightTransitionAnimator.swift */; };
+		BC75ABC01DB7A51A0057E743 /* SlideUpTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC75ABBB1DB7A51A0057E743 /* SlideUpTransitionAnimator.swift */; };
 		BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81FFCE1DA64E0400CDC54F /* Constants.swift */; };
 		BC8925D21DB31EEF0009386D /* InputEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */; };
 		BC8925D41DB34B850009386D /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8925D31DB34B850009386D /* Posts.swift */; };
@@ -52,12 +58,14 @@
 		BCF40CD21DA6229500467FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */; };
 		BCFE8B4C1DB3C15400223318 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE8B4B1DB3C15400223318 /* StoryTableViewController.swift */; };
 		BCFE8B4E1DB3C16F00223318 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE8B4D1DB3C16F00223318 /* StoryTableViewCell.swift */; };
+		BCFE8B501DB3D94200223318 /* DiscoveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE8B4F1DB3D94200223318 /* DiscoveryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26E50663729975CC9C1752FB /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		540D045A9089A4F272E9F510 /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
 		921793561AAAD9E82BBFCD9B /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whisper/Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
+		BC05EBA01DB717010027061A /* FriendManageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendManageTableViewController.swift; sourceTree = "<group>"; };
 		BC097D8E1DAEE94C00BC8DCC /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		BC097D901DAEEA2400BC8DCC /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		BC0F7AAB1DB1F06400897B77 /* QRCodeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeTool.swift; sourceTree = "<group>"; };
@@ -85,6 +93,11 @@
 		BC74F2741DA0C8840095343E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC74F27A1DA0CA640095343E /* SnapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapContainerViewController.swift; sourceTree = "<group>"; };
 		BC74F27B1DA0CA640095343E /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
+		BC75ABB71DB7A51A0057E743 /* PopTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopTransitionAnimator.swift; sourceTree = "<group>"; };
+		BC75ABB81DB7A51A0057E743 /* SlideDownTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideDownTransitionAnimator.swift; sourceTree = "<group>"; };
+		BC75ABB91DB7A51A0057E743 /* SlideLeftTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideLeftTransitionAnimator.swift; sourceTree = "<group>"; };
+		BC75ABBA1DB7A51A0057E743 /* SlideRightTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideRightTransitionAnimator.swift; sourceTree = "<group>"; };
+		BC75ABBB1DB7A51A0057E743 /* SlideUpTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUpTransitionAnimator.swift; sourceTree = "<group>"; };
 		BC81FFCE1DA64E0400CDC54F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputEmailViewController.swift; sourceTree = "<group>"; };
 		BC8925D31DB34B850009386D /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
@@ -105,6 +118,7 @@
 		BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCFE8B4B1DB3C15400223318 /* StoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
 		BCFE8B4D1DB3C16F00223318 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		BCFE8B4F1DB3D94200223318 /* DiscoveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +184,7 @@
 				BC3552251DB392AD00AD3FAC /* PostViewController.swift */,
 				BCFE8B4B1DB3C15400223318 /* StoryTableViewController.swift */,
 				BCFE8B4D1DB3C16F00223318 /* StoryTableViewCell.swift */,
+				BCFE8B4F1DB3D94200223318 /* DiscoveryTableViewController.swift */,
 			);
 			name = "Story & Memory Controllers";
 			sourceTree = "<group>";
@@ -204,6 +219,18 @@
 				BC74F26F1DA0C8840095343E /* Assets.xcassets */,
 			);
 			path = Whisper;
+			sourceTree = "<group>";
+		};
+		BC75ABB61DB7A4E50057E743 /* Swipe Transition */ = {
+			isa = PBXGroup;
+			children = (
+				BC75ABB71DB7A51A0057E743 /* PopTransitionAnimator.swift */,
+				BC75ABB81DB7A51A0057E743 /* SlideDownTransitionAnimator.swift */,
+				BC75ABB91DB7A51A0057E743 /* SlideLeftTransitionAnimator.swift */,
+				BC75ABBA1DB7A51A0057E743 /* SlideRightTransitionAnimator.swift */,
+				BC75ABBB1DB7A51A0057E743 /* SlideUpTransitionAnimator.swift */,
+			);
+			name = "Swipe Transition";
 			sourceTree = "<group>";
 		};
 		BC81FFD01DA6523000CDC54F /* Models */ = {
@@ -246,6 +273,7 @@
 		BC81FFD31DA6527E00CDC54F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC75ABB61DB7A4E50057E743 /* Swipe Transition */,
 				BC2BEA691DADF70A004315D6 /* Customizable Views */,
 				BC74F2741DA0C8840095343E /* Info.plist */,
 				BCF40CD11DA6229500467FD2 /* GoogleService-Info.plist */,
@@ -290,6 +318,7 @@
 				BCD533191DB25A0900D53E2E /* QRCodeViewController.swift */,
 				BC8925D11DB31EEF0009386D /* InputEmailViewController.swift */,
 				BCD5331B1DB26B1A00D53E2E /* SearchResultViewController.swift */,
+				BC05EBA01DB717010027061A /* FriendManageTableViewController.swift */,
 			);
 			name = "Friends Managment Controllers";
 			sourceTree = "<group>";
@@ -435,6 +464,7 @@
 				BC9521681DAF2063007BE919 /* ChatViewController.swift in Sources */,
 				BC95216C1DAF5F26007BE919 /* ChatListTableViewController.swift in Sources */,
 				BC2BEA641DADEBE8004315D6 /* LoginViewController.swift in Sources */,
+				BC05EBA11DB717010027061A /* FriendManageTableViewController.swift in Sources */,
 				BC0F7AAC1DB1F06400897B77 /* QRCodeTool.swift in Sources */,
 				BC3552221DB3894600AD3FAC /* MemoryTableViewController.swift in Sources */,
 				BC2BEA6D1DADF718004315D6 /* CustomizableButton.swift in Sources */,
@@ -445,16 +475,21 @@
 				BC8925D21DB31EEF0009386D /* InputEmailViewController.swift in Sources */,
 				BC2BEA731DAE4267004315D6 /* User.swift in Sources */,
 				BC2BEA661DADEBE8004315D6 /* SignupViewController.swift in Sources */,
+				BC75ABBE1DB7A51A0057E743 /* SlideLeftTransitionAnimator.swift in Sources */,
 				BC2BEA681DADEFB5004315D6 /* AuthenticationService.swift in Sources */,
 				BC2BEA6F1DADF718004315D6 /* CustomizableTextField.swift in Sources */,
 				BC99DA621DB05894002A816C /* EditProfileTableViewController.swift in Sources */,
 				BC99DA601DB05319002A816C /* SettingsTableViewController.swift in Sources */,
 				BC8925D41DB34B850009386D /* Posts.swift in Sources */,
 				BCFE8B4C1DB3C15400223318 /* StoryTableViewController.swift in Sources */,
+				BCFE8B501DB3D94200223318 /* DiscoveryTableViewController.swift in Sources */,
+				BC75ABBC1DB7A51A0057E743 /* PopTransitionAnimator.swift in Sources */,
 				BC7097C11DB3531A002250F3 /* SendPostTableViewController.swift in Sources */,
 				BC3444EB1DACB68A00782EAC /* SCLAlertView.swift in Sources */,
 				BC147E8B1DA0DF2600D03E7C /* CameraViewController.swift in Sources */,
 				BC097D911DAEEA2400BC8DCC /* UsersTableViewController.swift in Sources */,
+				BC75ABBF1DB7A51A0057E743 /* SlideRightTransitionAnimator.swift in Sources */,
+				BC75ABBD1DB7A51A0057E743 /* SlideDownTransitionAnimator.swift in Sources */,
 				BC74F27D1DA0CA640095343E /* VerticalScrollViewController.swift in Sources */,
 				BC74F2691DA0C8840095343E /* AppDelegate.swift in Sources */,
 				BC2BEA651DADEBE8004315D6 /* ResetPasswordViewController.swift in Sources */,
@@ -467,6 +502,7 @@
 				BCD5331A1DB25A0900D53E2E /* QRCodeViewController.swift in Sources */,
 				BC81FFCF1DA64E0400CDC54F /* Constants.swift in Sources */,
 				BCD5331C1DB26B1A00D53E2E /* SearchResultViewController.swift in Sources */,
+				BC75ABC01DB7A51A0057E743 /* SlideUpTransitionAnimator.swift in Sources */,
 				BC1FB8FF1DB1C7AA009A9681 /* ImageViewController.swift in Sources */,
 				BCFE8B4E1DB3C16F00223318 /* StoryTableViewCell.swift in Sources */,
 			);

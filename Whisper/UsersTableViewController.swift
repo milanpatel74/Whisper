@@ -11,11 +11,16 @@
 import UIKit
 import Firebase
 
-class UsersTableViewController: UITableViewController {
+class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
 
+    var searchController:UISearchController!
+    
+    
     var userArray = [User]()
     var chatFunctions = ChatFunctions()
     var friendList = [String: Bool]()
+    
+    var searchResults = [User]()
     
     var databaseRef: FIRDatabaseReference! { return FIRDatabase.database().reference() }
     var storageRef: FIRStorage! { return FIRStorage.storage() }
@@ -29,6 +34,21 @@ class UsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search users..."
+        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.barTintColor = UIColor(red: 255.0/255.0, green:
+            128.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
+        
         //tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         
@@ -101,16 +121,22 @@ class UsersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return userArray.count
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return userArray.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as! UsersTableViewCell
         
-        cell.usernameLabel.text = userArray[indexPath.row].username
-        cell.userCountryLabel.text = userArray[indexPath.row].country!
-        storageRef.reference(forURL: userArray[indexPath.row].photoURL!).data(withMaxSize: 256*1024, completion: { (imgData, error) in
+        let user = (searchController.isActive) ? searchResults[indexPath.row] : userArray[indexPath.row]
+        
+        cell.usernameLabel.text = user.username
+        cell.userCountryLabel.text = user.country!
+        storageRef.reference(forURL: user.photoURL!).data(withMaxSize: 256*1024, completion: { (imgData, error) in
             if let error = error {
                 let alertView = SCLAlertView()
                 alertView.showError("OOPS", subTitle: error.localizedDescription)
@@ -146,13 +172,17 @@ class UsersTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -181,6 +211,22 @@ class UsersTableViewController: UITableViewController {
     }
     */
 
+    func filterContent(for searchText: String) {
+        searchResults = userArray.filter({ (user) -> Bool in
+            if let name = user.username {
+                let isMatch = name.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Navigation
 

@@ -20,6 +20,7 @@ class QRCodeViewController: UIViewController {
     let scanner = QRCode()
     let uemail = FIRAuth.auth()!.currentUser!.email
     let photoUrl = FIRAuth.auth()!.currentUser!.photoURL
+    var avatarImg: UIImage!
     
     var searchedUser: User!
     var searchedEmail = ""
@@ -27,6 +28,9 @@ class QRCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
         
         // Do any additional setup after loading the view.
         scanner.prepareScan(scanView) { (stringValue) -> () in
@@ -44,14 +48,16 @@ class QRCodeViewController: UIViewController {
         super.viewDidAppear(animated)
         searchButton.isHidden = true
         codeView.isHidden = false
-        do {
-            let imgData = try Data(contentsOf: photoUrl!)
-            let avatar = UIImage(data: imgData)
+//        do {
+//            let imgData = try Data(contentsOf: photoUrl!)
+//            let avatar = UIImage(data: imgData)
+//            codeView.image = QRCode.generateImage(uemail!, avatarImage: avatar)
+//        } catch {
+//            print(error)
+//        }
+        if let avatar = avatarImg {
             codeView.image = QRCode.generateImage(uemail!, avatarImage: avatar)
-        } catch {
-            print(error)
         }
-        
     }
     
     @IBAction func startScan(_ sender: AnyObject) {

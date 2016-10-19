@@ -27,6 +27,10 @@ class ChatListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         
@@ -152,16 +156,22 @@ class ChatListTableViewController: UITableViewController {
         
         if differenceOfDate.second! <= 0 {
             cell.dateLabel.text = "now"
+            cell.fireImage.image = UIImage(named: "fire-1")
         } else if differenceOfDate.second! > 0 && differenceOfDate.minute! == 0 {
             cell.dateLabel.text = "\(differenceOfDate.second!)s"
+            cell.fireImage.image = UIImage(named: "fire-2")
         } else if differenceOfDate.minute! > 0 && differenceOfDate.hour! == 0 {
             cell.dateLabel.text = "\(differenceOfDate.minute!)m"
+            cell.fireImage.image = UIImage(named: "fire-3")
         } else if differenceOfDate.hour! > 0 && differenceOfDate.day! == 0 {
             cell.dateLabel.text = "\(differenceOfDate.hour!)h"
+            cell.fireImage.image = UIImage(named: "fire-4")
         } else if differenceOfDate.day! > 0 && differenceOfDate.weekOfMonth! == 0 {
             cell.dateLabel.text = "\(differenceOfDate.day!)d"
+            cell.fireImage.image = UIImage(named: "fire-5")
         } else if differenceOfDate.weekOfMonth! > 0 {
             cell.dateLabel.text = "\(differenceOfDate.weekOfMonth!)w"
+            cell.fireImage.image = UIImage(named: "fire-6")
         }
         
         //let components: CFCalendarUnit = [.second, .minute, .hour, .day, .weekOfMonth]
@@ -255,6 +265,9 @@ class ChatListTableViewController: UITableViewController {
         return true
     }
     */
+    @IBAction func goBackToCam(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

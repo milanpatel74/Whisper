@@ -21,7 +21,10 @@ class InputEmailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         // Do any additional setup after loading the view.
     }
 

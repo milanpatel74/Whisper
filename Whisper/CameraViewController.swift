@@ -15,6 +15,11 @@ class CameraViewController: UIViewController {
 
     let cameraManager = CameraManager()
     
+    let upNavi = SlideDownTransitionAnimator()
+    let downNavi = SlideUpTransitionAnimator()
+    let rightNavi = SlideLeftTransitionAnimator()
+    let leftNavi = SlideRightTransitionAnimator()
+    
     // MARK: - @IBOutlets
 
     @IBOutlet var cameraView: UIView!
@@ -171,14 +176,45 @@ class CameraViewController: UIViewController {
     @IBAction func close(segue:UIStoryboardSegue) {
     }
 
-    /*
+    @IBAction func goToProfile(_ sender: AnyObject) {
+        performSegue(withIdentifier: "goToProfile", sender: nil)
+    }
+    
+    @IBAction func goToChat(_ sender: AnyObject) {
+        performSegue(withIdentifier: "goToChat", sender: nil)
+    }
+    
+    @IBAction func goToStory(_ sender: AnyObject) {
+        performSegue(withIdentifier: "goToStory", sender: nil)
+    }
+    
+    @IBAction func goToMemory(_ sender: AnyObject) {
+        performSegue(withIdentifier: "goToMemory", sender: nil)
+    }
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "goToProfile" {
+            let destinationVC = segue.destination
+            destinationVC.transitioningDelegate = upNavi
+        } else if segue.identifier == "goToMemory" {
+            let destinationVC = segue.destination
+            destinationVC.transitioningDelegate = downNavi
+        } else if segue.identifier == "goToChat" {
+            let destinationVC = segue.destination
+            destinationVC.transitioningDelegate = leftNavi
+        } else if segue.identifier == "goToStory" {
+            let destinationVC = segue.destination
+            destinationVC.transitioningDelegate = rightNavi
+        }
+        
     }
-    */
+    
 
 }

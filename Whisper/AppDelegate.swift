@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         // If the user has signed in, and haven't signed out, then move to the main view directlly.
         logUser()
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
     

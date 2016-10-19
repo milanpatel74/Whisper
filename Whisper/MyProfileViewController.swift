@@ -26,6 +26,10 @@ class MyProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         userImageView.layer.cornerRadius = 65
         
+        UINavigationBar.appearance().tintColor = UIColor.white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,14 +89,34 @@ class MyProfileViewController: UIViewController {
         }
     }
 
-    /*
+    @IBAction func goToCam(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "addFriendSegue" {
+            let destinationVC = segue.destination as! FriendManageTableViewController
+            if let image = userImageView.image {
+                destinationVC.userImage = image
+            }
+            if let username = username.text {
+                destinationVC.username = username
+            }
+            if let userEmail = email.text {
+                destinationVC.userEmail = userEmail
+            }
+        }
+        
     }
-    */
+    
 
 }

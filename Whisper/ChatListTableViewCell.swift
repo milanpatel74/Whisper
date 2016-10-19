@@ -14,6 +14,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var lastMessageLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var fireImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

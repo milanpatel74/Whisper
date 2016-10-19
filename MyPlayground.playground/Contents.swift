@@ -5,7 +5,7 @@ import UIKit
 
 var str = "Hello, playground"
 NSNumber(value: NSDate().timeIntervalSince1970)
-NSDate().timeIntervalSince1970
+Double(NSDate().timeIntervalSince1970)
 
 
 
@@ -25,6 +25,11 @@ let date = Date(timeIntervalSince1970: Double(timestamp)!)
 var dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "HH:mm a 'on' MMMM dd, yyyy"
 var dateString = dateFormatter.string(from: date)
+
+
+var df = DateFormatter()
+df.dateFormat = "'Last Message: 'MM/dd hh:mm a"
+var ds = df.string(from: date)
 
 
 let a: NSNumber = 33333
