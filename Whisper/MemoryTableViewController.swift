@@ -65,8 +65,8 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.pickedImage = image
             self.dismiss(animated: true, completion: nil)
-            print("\n\n\n")
-            print(self.pickedImage.description)
+            // print("\n\n\n")
+            // print(self.pickedImage.description)
             performSegue(withIdentifier: "pickImage", sender: nil)
         }
     }

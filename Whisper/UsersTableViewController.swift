@@ -67,7 +67,6 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             for friend in snapshot.children {
-                print("----")
                 let snap = friend as! FIRDataSnapshot
                 self.friendList[snap.key] = true
                 //print(snap.key)

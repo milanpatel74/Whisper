@@ -42,6 +42,7 @@ struct AuthenticationService {
                 if let user = user {
                     print("\(user.displayName) has signed in successfully")
                     print("\(user.email!) has signed in successfuly")
+                    
                     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDel.logUser()
                 }

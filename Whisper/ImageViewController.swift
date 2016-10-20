@@ -18,7 +18,7 @@ class ImageViewController: UIViewController, ToolStackControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var timeSlider: UISlider!
     
-    
+    let popNavi = PopTransitionAnimator()
     
     //var windowTintColor: UIColor!
     
@@ -107,6 +107,7 @@ class ImageViewController: UIViewController, ToolStackControllerDelegate {
         // Pass the selected object to the new view controller.
         if segue.identifier == "sendPhoto" {
             let resultVC = segue.destination as! SendPostTableViewController
+            resultVC.transitioningDelegate = popNavi
             if let img = image {
                 resultVC.passedImage = img
                 resultVC.passedTimeout = timeout

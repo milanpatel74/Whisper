@@ -217,13 +217,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         // 添加图片按钮
         let imageAction = UIAlertAction(title: "Image", style: .default) { (action) in
-            print("Image")
+            // print("Image")
             self.getMedia(mediaType: kUTTypeImage)
         }
         
         // 添加视频按钮
         let videoAction = UIAlertAction(title: "Video", style: .default) { (action) in
-            print("Video")
+            // print("Video")
             self.getMedia(mediaType: kUTTypeMovie)
         }
         

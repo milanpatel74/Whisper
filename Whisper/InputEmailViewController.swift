@@ -47,9 +47,9 @@ class InputEmailViewController: UIViewController {
             KRProgressHUD.show()
             let userRef = databaseRef.child("users")
             userRef.queryOrdered(byChild: "email").queryEqual(toValue: searchedEmail).observeSingleEvent(of: .childAdded, with: { (snapshot) in
-                print("\n\n----------")
-                print(snapshot.exists())
-                print("----------\n\n")
+                // print("\n\n----------")
+                // print(snapshot.exists())
+                // print("----------\n\n")
                 self.searchedUser = User(snapshot: snapshot)
                 KRProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "emailToAdd", sender: nil)

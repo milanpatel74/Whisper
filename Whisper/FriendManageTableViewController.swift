@@ -16,9 +16,9 @@ class FriendManageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().tintColor = UIColor.white
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.white
+        //UINavigationBar.appearance().tintColor = UIColor.white
+        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        //navigationController?.navigationBar.tintColor = UIColor.white
 
         
         
@@ -39,15 +39,13 @@ class FriendManageTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 4
-        } else if section == 1 {
-            return 1
         } else {
             return 0
         }

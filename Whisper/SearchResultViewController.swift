@@ -55,14 +55,14 @@ class SearchResultViewController: UIViewController {
         // 加载好友列表
         let friendsRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
         friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
+            // print(snapshot)
             for friend in snapshot.children {
                 let snap = friend as! FIRDataSnapshot
                 self.friendList[snap.key] = true
                 //print(snap.key)
                 //print(friend)
             }
-            print(self.friendList)
+            // print(self.friendList)
             if self.friendList[user.uid] != nil {
                 self.addButton.backgroundColor = whisper_red
                 self.addButton.isEnabled = false

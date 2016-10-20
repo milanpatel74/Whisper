@@ -34,7 +34,7 @@ class QRCodeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         scanner.prepareScan(scanView) { (stringValue) -> () in
-            print(stringValue)
+            print("QRCode Info: ", stringValue)
             self.searchedEmail = stringValue
             self.infoLabel.text = stringValue
             self.searchButton.isHidden = false

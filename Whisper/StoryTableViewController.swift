@@ -62,8 +62,7 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
         // 加载好友列表
         postArray.removeAll()
         self.friendList.append(FIRAuth.auth()!.currentUser!.uid)
-        print("Hello World\n\n\n")
-        
+
         let friendsRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
         friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             //print(snapshot)
@@ -93,7 +92,7 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
                 if newPost.isPrivate == false {
                     print("Hi", newPost.senderId)
                     self.postArray.append(newPost)
-                    print(self.postArray)
+                    // print(self.postArray)
                 }
                 
                 self.postArray.sort(by: { (post1, post2) -> Bool in

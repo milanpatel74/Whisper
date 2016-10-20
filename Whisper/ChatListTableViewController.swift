@@ -55,7 +55,7 @@ class ChatListTableViewController: UITableViewController {
 
         databaseRef.child("ChatRooms").queryOrdered(byChild: "userId").queryEqual(toValue: FIRAuth.auth()!.currentUser!.uid).observe(.childAdded, with: { (snapshot) in
 
-            //print("\n\n\n\nObserver!\n\n\n\n")
+            // print("\n\n\n\nObserver!\n\n\n\n")
             
             let key = snapshot.key
             let ref = snapshot.ref

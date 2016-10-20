@@ -149,7 +149,7 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     /// start scan
     open func startScan() {
         if session.isRunning {
-            print("the  capture session is running")
+            print("the capture session is running")
             
             return
         }
