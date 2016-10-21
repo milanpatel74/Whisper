@@ -74,8 +74,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             }
             
         }) { (error) in
-                let alertView = SCLAlertView()
-                alertView.showError("OOPS", subTitle: error.localizedDescription)
+//                let alertView = SCLAlertView()
+//                alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
     
@@ -100,8 +100,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             
             
         }) { (error) in
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
     
@@ -137,8 +137,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         cell.userCountryLabel.text = user.country!
         storageRef.reference(forURL: user.photoURL!).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
             if let error = error {
-                let alertView = SCLAlertView()
-                alertView.showError("OOPS", subTitle: error.localizedDescription)
+//                let alertView = SCLAlertView()
+//                alertView.showError("OOPS", subTitle: error.localizedDescription)
             } else {
                 DispatchQueue.main.async {
                     if let data = imgData {

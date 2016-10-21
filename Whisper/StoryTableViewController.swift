@@ -76,8 +76,8 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
             //self.tableView.reloadData()
             
         }) { (error) in
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
     
@@ -101,8 +101,8 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
                 })
                 self.tableView.reloadData()
             }) { (error) in
-                let alertView = SCLAlertView()
-                alertView.showError("OOPS", subTitle: error.localizedDescription)
+//                let alertView = SCLAlertView()
+//                alertView.showError("OOPS", subTitle: error.localizedDescription)
             }
         }
     }
@@ -144,8 +144,8 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
         
         storageRef.reference(forURL: cellPost.imageUrl).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
             if let error = error {
-                let alertView = SCLAlertView()
-                alertView.showError("OOPS", subTitle: error.localizedDescription)
+//                let alertView = SCLAlertView()
+//                alertView.showError("OOPS", subTitle: error.localizedDescription)
             } else {
                 DispatchQueue.main.async {
                     if let data = imgData {

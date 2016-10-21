@@ -59,7 +59,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         // Change the background wallpaper of this chatroom.
-        collectionView.backgroundView = UIImageView.init(image: UIImage(named: "wallpaper-2"))
+        collectionView.backgroundView = UIImageView.init(image: UIImage(named: "wallpaper-colorful"))
         
         // fetch all messages from the firebase realtime database.
         

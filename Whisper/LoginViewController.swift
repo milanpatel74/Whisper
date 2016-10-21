@@ -17,6 +17,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginView: UIView!
     
+    // beginAnimations
+    
+    @IBOutlet var wLabel: UILabel!
+    @IBOutlet var hLabel: UILabel!
+    @IBOutlet var iLabel: UILabel!
+    @IBOutlet var sLabel: UILabel!
+    @IBOutlet var pLabel: UILabel!
+    @IBOutlet var eLabel: UILabel!
+    @IBOutlet var rLabel: UILabel!
+    @IBOutlet var heart: UIImageView!
+    
     var authService = AuthenticationService()
     
     override func viewDidLoad() {
@@ -27,6 +38,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroungImage.addSubview(blurEffectView)
+        
+        
+        let translate = CGAffineTransform(translationX: 0, y: -400)
+        wLabel.transform = translate
+        hLabel.transform = translate
+        iLabel.transform = translate
+        sLabel.transform = translate
+        pLabel.transform = translate
+        eLabel.transform = translate
+        rLabel.transform = translate
+        
+        let translate2 = CGAffineTransform(translationX: -300, y: 0)
+        heart.transform = translate2
         
         //Setting the delegates for the Textfields
         
@@ -44,6 +68,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(swipDown)
         
         view.bringSubview(toFront: loginView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.7, delay: 0.5, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.wLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.6, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.hLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.7, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.iLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.8, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.sLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.9, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.pLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 1.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.eLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 1.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.rLabel.transform = CGAffineTransform.identity
+        }, completion: nil)
+        UIView.animate(withDuration: 1.0, delay: 1.6, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.8, options: [], animations: {
+            self.heart.transform = CGAffineTransform.identity
+            }, completion: nil)
+        
     }
 
 

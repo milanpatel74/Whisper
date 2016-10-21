@@ -1658,11 +1658,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper-login" translatesAutoresizingMaskIntoConstraints="NO" id="ra5-Qm-BiE"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHISPER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUW-ch-7gA">
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="60"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-Zz-vHT">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-vJ-ISN" customClass="CustomizableTextField" customModule="Whisper" customModuleProvider="target">
@@ -1758,14 +1753,65 @@
                                     <constraint firstItem="oqZ-dt-1VD" firstAttribute="centerX" secondItem="6dn-Zz-vHT" secondAttribute="centerX" id="wK9-dJ-f7E"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyW-Pr-vM7">
+                                <frame key="frameInset" minX="57" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yel-Eq-HRr">
+                                <frame key="frameInset" minX="108" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vz-hS-U5M">
+                                <frame key="frameInset" minX="137" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQn-lg-Dn2">
+                                <frame key="frameInset" minX="162" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="P" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-OK-CqD">
+                                <frame key="frameInset" minX="196" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-6B-nWr">
+                                <frame key="frameInset" minX="232" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ma-07-41S">
+                                <frame key="frameInset" minX="267" minY="122" width="61" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-Dv-suY">
+                                <frame key="frameInset" minX="160" minY="121" width="15" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ra5-Qm-BiE" secondAttribute="trailing" id="56R-Jm-xeO"/>
                             <constraint firstItem="6dn-Zz-vHT" firstAttribute="centerY" secondItem="hee-xv-DGY" secondAttribute="centerY" constant="77" id="8RA-WN-sKu"/>
                             <constraint firstItem="ra5-Qm-BiE" firstAttribute="leading" secondItem="hee-xv-DGY" secondAttribute="leading" id="C4b-JD-zMf"/>
-                            <constraint firstItem="ra5-Qm-BiE" firstAttribute="top" secondItem="bUW-ch-7gA" secondAttribute="bottom" constant="-204" id="CNz-Mh-6n4"/>
-                            <constraint firstItem="bUW-ch-7gA" firstAttribute="centerX" secondItem="hee-xv-DGY" secondAttribute="centerX" id="GLt-XS-f6R"/>
                             <constraint firstItem="ra5-Qm-BiE" firstAttribute="top" secondItem="hee-xv-DGY" secondAttribute="top" id="I38-qR-CDv"/>
                             <constraint firstItem="6dn-Zz-vHT" firstAttribute="centerX" secondItem="hee-xv-DGY" secondAttribute="centerX" id="hdT-lC-JxU"/>
                             <constraint firstItem="EVO-SH-LMg" firstAttribute="top" secondItem="ra5-Qm-BiE" secondAttribute="bottom" id="scI-5h-5bj"/>
@@ -1773,9 +1819,17 @@
                     </view>
                     <connections>
                         <outlet property="backgroungImage" destination="ra5-Qm-BiE" id="xnA-qL-b98"/>
+                        <outlet property="eLabel" destination="Adb-6B-nWr" id="gav-Oz-sG9"/>
+                        <outlet property="hLabel" destination="yel-Eq-HRr" id="LM5-o5-I6y"/>
+                        <outlet property="heart" destination="XQ6-Dv-suY" id="zd6-DN-g8h"/>
+                        <outlet property="iLabel" destination="4vz-hS-U5M" id="nWA-Sf-G0R"/>
                         <outlet property="loginView" destination="6dn-Zz-vHT" id="OWc-3r-A97"/>
+                        <outlet property="pLabel" destination="kd0-OK-CqD" id="Gvh-2d-ypd"/>
                         <outlet property="passwordTextField" destination="WVa-Tx-pOn" id="Hyl-fw-pkE"/>
+                        <outlet property="rLabel" destination="0Ma-07-41S" id="NW3-oc-P5x"/>
+                        <outlet property="sLabel" destination="VQn-lg-Dn2" id="6Ib-YY-T9M"/>
                         <outlet property="usernameTextField" destination="P8S-vJ-ISN" id="HIe-Xd-fFz"/>
+                        <outlet property="wLabel" destination="FyW-Pr-vM7" id="OWR-Ui-cfc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4I-zt-MoT" sceneMemberID="firstResponder"/>
@@ -2154,6 +2208,7 @@
         <image name="gear" width="25" height="24"/>
         <image name="gotoCam-3" width="23" height="23"/>
         <image name="gotoCam-4" width="30" height="30"/>
+        <image name="heart" width="15" height="14"/>
         <image name="logout" width="50" height="50"/>
         <image name="news" width="207" height="271"/>
         <image name="send-photo" width="75" height="75"/>

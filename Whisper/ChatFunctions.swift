@@ -56,8 +56,8 @@ struct ChatFunctions {
             // print("\n\n\n\n\n\(createChatRoom)\n\n\n\n\n")
             
         }) { (error) in
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
         
     }

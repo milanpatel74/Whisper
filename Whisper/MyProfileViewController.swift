@@ -84,8 +84,9 @@ class MyProfileViewController: UIViewController {
                 present(vc, animated: true, completion: nil)
             }
         } catch let error as NSError {
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+            print(error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
 

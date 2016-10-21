@@ -46,8 +46,8 @@ class SendPostTableViewController: UITableViewController {
             }
             
         }) { (error) in
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
     
@@ -72,8 +72,8 @@ class SendPostTableViewController: UITableViewController {
             
             
         }) { (error) in
-            let alertView = SCLAlertView()
-            alertView.showError("OOPS", subTitle: error.localizedDescription)
+//            let alertView = SCLAlertView()
+//            alertView.showError("OOPS", subTitle: error.localizedDescription)
         }
     }
     
