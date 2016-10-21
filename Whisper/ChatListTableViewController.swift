@@ -189,7 +189,7 @@ class ChatListTableViewController: UITableViewController {
         
         
         if let urlString = userPhotoUrlString {
-            storageRef.reference(forURL: urlString).data(withMaxSize: 256*1024, completion: { (imgData, error) in
+            storageRef.reference(forURL: urlString).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
                 if let error = error {
                     let alertView = SCLAlertView()
                     alertView.showError("Chatrooms Error", subTitle: error.localizedDescription)
@@ -222,16 +222,24 @@ class ChatListTableViewController: UITableViewController {
     
 
     
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             // Delete the row from the data source
-            self.chatsArray[indexPath.row].ref?.removeValue()
+//            if let pRef = self.chatsArray[indexPath.row].ref {
+//                pRef.removeValue()
+//            }
             self.chatsArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            print("\n\nDelete")
+        })
+        
+        deleteAction.backgroundColor = whisper_red
+            //UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        
+        return [deleteAction]
     }
     
     

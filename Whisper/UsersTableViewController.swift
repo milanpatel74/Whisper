@@ -135,7 +135,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         
         cell.usernameLabel.text = user.username
         cell.userCountryLabel.text = user.country!
-        storageRef.reference(forURL: user.photoURL!).data(withMaxSize: 256*1024, completion: { (imgData, error) in
+        storageRef.reference(forURL: user.photoURL!).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
             if let error = error {
                 let alertView = SCLAlertView()
                 alertView.showError("OOPS", subTitle: error.localizedDescription)
@@ -183,17 +183,26 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
     }
     
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let user = userArray[indexPath.row]
+            let friendRef = databaseRef.child("Friendships").child(FIRAuth.auth()!.currentUser!.uid)
+            let deleteAlertView = SCLAlertView()
+            deleteAlertView.addButton("Delete", action: {
+                friendRef.child(user.uid).removeValue()
+                self.userArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            deleteAlertView.showWarning("Warning", subTitle: "Are you sure that you want to delete your friend \(user.username)?")
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -14,10 +14,14 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     var authServce = AuthenticationService()
     
+    @IBOutlet var backgroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroundImage.addSubview(blurEffectView)
 
         emailTextField.delegate = self
         

@@ -11,6 +11,7 @@ import Firebase
 
 class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
     
+    let popNavi = PopTransitionAnimator()
     var searchController:UISearchController!
 
     let databaseRef = FIRDatabase.database().reference()
@@ -90,7 +91,7 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
                 //print(snapshot)
                 let newPost = Post(snapshot: snapshot)
                 if newPost.isPrivate == false {
-                    print("Hi", newPost.senderId)
+                    print("Hi, new post from ", newPost.username)
                     self.postArray.append(newPost)
                     // print(self.postArray)
                 }
@@ -176,6 +177,68 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // Social Sharing Button
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+            let defaultText = "I find a great story in Whisper!\n" + self.postArray[indexPath.row].username
+            
+            let cell = self.tableView.cellForRow(at: indexPath) as! StoryTableViewCell
+            if let imageToShare = cell.storyImage.image {
+                let activityController = UIActivityViewController(activityItems:
+                    [defaultText, imageToShare], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+            //if let imageToShare = self.tableView.cellForRow(at: indexPath)?.story.image {
+            
+            //}
+            
+            print("\n\nShare")
+            
+        })
+        
+        // Lock button
+        let lockAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Lock",handler: { (action, indexPath) -> Void in
+            let ownerUid = self.postArray[indexPath.row].senderId!
+            if ownerUid == FIRAuth.auth()!.currentUser!.uid {
+                // Delete the row from the data source
+                if let pRef = self.postArray[indexPath.row].ref {
+                    pRef.child("isPrivate").setValue(true)
+                }
+                self.postArray.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                print("\n\nLocked")
+                
+            } else {
+                let alertView = SCLAlertView()
+                alertView.showNotice("Notice", subTitle: "You can only lock your own story.")
+            }
+        })
+        
+        
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+            let ownerUid = self.postArray[indexPath.row].senderId!
+            if ownerUid == FIRAuth.auth()!.currentUser!.uid {
+                // Delete the row from the data source
+                if let pRef = self.postArray[indexPath.row].ref {
+                    pRef.removeValue()
+                }
+                self.postArray.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                print("\n\nDelete")
+
+            } else {
+                let alertView = SCLAlertView()
+                alertView.showNotice("Notice", subTitle: "You can only delete your own story.")
+            }
+        })
+        
+        shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        lockAction.backgroundColor = UIColor(red: 247.0/255.0, green: 202.0/255.0, blue: 24.0/255.0, alpha: 1.0)
+        
+        return [deleteAction, lockAction, shareAction]
+    }
 
     /*
     // Override to support editing the table view.
@@ -236,6 +299,7 @@ class StoryTableViewController: UITableViewController, UISearchResultsUpdating {
         if segue.identifier == "postFromStory" {
             let selectedCell = tableView.cellForRow(at: selectedIndexPath) as! StoryTableViewCell
             let destinationVC = segue.destination as! PostViewController
+            destinationVC.transitioningDelegate = popNavi
             destinationVC.timeout = postArray[selectedIndexPath.row].timeout as Int
             
             if selectedCell.storyImage.image != nil {

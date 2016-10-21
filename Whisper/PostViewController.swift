@@ -25,11 +25,11 @@ class PostViewController: UIViewController {
         timer = DispatchSource.makeTimerSource(queue: .main)
         timer?.scheduleRepeating(deadline: .now() + DispatchTimeInterval.seconds(timeout), interval: DispatchTimeInterval.seconds(timeout))
         timer?.setEventHandler {
-            //self.dismiss(animated: true, completion: nil)
-            if self.navigationController != nil {
-                self.navigationController!.popViewController(animated: true)
-                
-            }
+            self.dismiss(animated: true, completion: nil)
+//            if self.navigationController != nil {
+//                self.navigationController!.popViewController(animated: true)
+//                
+//            }
             //let _ = self.navigationController?.popViewController(animated: true)
             
             //self.dismiss(animated: true, completion: nil)
@@ -48,9 +48,9 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().tintColor = UIColor.white
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.white
+//        UINavigationBar.appearance().tintColor = UIColor.white
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        navigationController?.navigationBar.tintColor = UIColor.white
         
         if let image = img {
             postImage.image = image
@@ -67,12 +67,20 @@ class PostViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         deinitTimer()
     }
+    
+    
+    @IBAction func didTap(_ sender: UISwipeGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didClose(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

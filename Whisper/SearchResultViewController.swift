@@ -37,7 +37,7 @@ class SearchResultViewController: UIViewController {
             country.text = user.country
             biography.text = user.biography
             checkFriendList(user: user)
-            FIRStorage.storage().reference(forURL: user.photoURL).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
+            FIRStorage.storage().reference(forURL: user.photoURL).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
                 if let error = error {
                     let alertView = SCLAlertView()
                     alertView.showError("AAOOPS", subTitle: error.localizedDescription)

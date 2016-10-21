@@ -11,6 +11,8 @@ import KRProgressHUD
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var backgroungImage: UIImageView!
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginView: UIView!
@@ -20,6 +22,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroungImage.addSubview(blurEffectView)
+        
         //Setting the delegates for the Textfields
         
         usernameTextField.delegate = self

@@ -11,6 +11,8 @@ import Firebase
 
 class MemoryTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    let popNavi = PopTransitionAnimator()
+    
     var postArray = [Post]()
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage()
@@ -45,6 +47,10 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
     
     @IBAction func addPostFromAlbum(_ sender: AnyObject) {
         let pickerController = UIImagePickerController()
+        pickerController.navigationBar.barTintColor = UIColor.init(red: 128/255, green: 0.0, blue: 128/255, alpha: 1)
+        pickerController.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.white
+        ]
         pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.sourceType = .photoLibrary
@@ -54,6 +60,10 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
     
     @IBAction func addPostFromAlbum2(_ sender: AnyObject) {
         let pickerController = UIImagePickerController()
+        pickerController.navigationBar.barTintColor = UIColor.init(red: 128/255, green: 0.0, blue: 128/255, alpha: 1)
+        pickerController.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.white
+        ]
         pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.sourceType = .photoLibrary
@@ -81,6 +91,7 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
             if newPost.isPrivate == true {
                 self.postArray.append(newPost)
             }
+            
             self.postArray.sort(by: { (post1, post2) -> Bool in
                 post1.timestamp.doubleValue > post2.timestamp.doubleValue
             })
@@ -168,24 +179,54 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
     }
     
 
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+//    // Override to support editing the table view.
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+////            let postRef = databaseRef.child("Posts").child(FIRAuth.auth()!.currentUser!.uid).queryOrdered(byChild: "timestamp").queryEqual(toValue: postArray[indexPath.row].timestamp).ref
+////            postRef.removeValue()
+//            
+//
+//            postArray.remove(at: indexPath.row)
+//            
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.reloadData()
+//            
+//            
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//            print("Shared a memory")
+//        }    
+//    }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // Social Sharing Button
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+            print("\n\nShare")
+            if let pRef = self.postArray[indexPath.row].ref {
+                pRef.child("isPrivate").setValue(false)
+            }
+            self.postArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        })
+        
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             // Delete the row from the data source
-//            let postRef = databaseRef.child("Posts").child(FIRAuth.auth()!.currentUser!.uid).queryOrdered(byChild: "timestamp").queryEqual(toValue: postArray[indexPath.row].timestamp).ref
-//            postRef.removeValue()
-            
-            postArray.remove(at: indexPath.row)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-            
-            
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            print("Shared a memory")
-        }    
+            if let pRef = self.postArray[indexPath.row].ref {
+                pRef.removeValue()
+            }
+            self.postArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            print("\n\nDelete")
+        })
+        
+        shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        
+        return [deleteAction, shareAction]
     }
+    
     
     @IBAction func goToCam(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
@@ -206,6 +247,7 @@ class MemoryTableViewController: UITableViewController, UIImagePickerControllerD
         if segue.identifier == "postFromMemory" {
             let selectedCell = tableView.cellForRow(at: selectedIndexPath) as! MemoryTableViewCell
             let destinationVC = segue.destination as! PostViewController
+            destinationVC.transitioningDelegate = popNavi
             destinationVC.timeout = postArray[selectedRow].timeout as Int
             
             if selectedCell.imageLabel.image != nil {

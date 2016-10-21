@@ -10,6 +10,7 @@ import UIKit
 
 class SignupViewController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet weak var userImageView: CustomizableImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,6 +25,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate,UIPickerViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroundImage.addSubview(blurEffectView)
+        
         // Do any additional setup after loading the view.
         usernameTextField.delegate = self
         passwordTextField.delegate = self

@@ -46,7 +46,7 @@ class SettingsTableViewController: UITableViewController {
             if let user = self.user {
                 self.usernameLabel.text = user.username
                 self.userBioLabel.text = user.biography
-                FIRStorage.storage().reference(forURL: user.photoURL).data(withMaxSize: 1*512*1024, completion: { (imgData, error) in
+                FIRStorage.storage().reference(forURL: user.photoURL).data(withMaxSize: 6*1024*1024, completion: { (imgData, error) in
                     if let error = error {
                         let alertView = SCLAlertView()
                         alertView.showError("AAOOPS", subTitle: error.localizedDescription)

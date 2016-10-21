@@ -226,6 +226,11 @@ class EditProfileTableViewController: UITableViewController, UIImagePickerContro
     
     func choosePictureAction() {
         let pickerController = UIImagePickerController()
+        pickerController.navigationBar.barTintColor = UIColor.init(red: 255.0/255, green: 128.0/255.0, blue: 0/255, alpha: 1)
+        pickerController.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.white
+        ]
+        
         pickerController.delegate = self
         pickerController.allowsEditing = true
         

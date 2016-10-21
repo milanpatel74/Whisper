@@ -80,6 +80,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     // 获取信息（当获取信息的时候，将对方的信息置为已读）
     func fetchMessges() {
         
+        messages.removeAll(keepingCapacity: false)
         //messages.removeAll(keepingCapacity: false)
         let messageQuery = databaseRef.child("ChatRooms").child(chatRoomId).child("Messages").queryLimited(toLast: 30)
         messageQuery.observe(.childAdded, with: { (snapshot) in
